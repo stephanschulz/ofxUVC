@@ -6,9 +6,19 @@
 #include <IOKit/IOCFPlugIn.h>
 #include <IOKit/usb/IOUSBLib.h>
 
+//http://phoboslab.org/log/2009/07/uvc-camera-control-for-mac-os-x#comment107
+
+#define USE_C920
+
 
 #define UVC_INPUT_TERMINAL_ID 0x01
+
+#ifdef USE_C920
+#define UVC_PROCESSING_UNIT_ID 0x03 //changed this to work with c920, might not work with others
+#else
 #define UVC_PROCESSING_UNIT_ID 0x02
+#endif
+
 
 #define UVC_CONTROL_INTERFACE_CLASS 14
 #define UVC_CONTROL_INTERFACE_SUBCLASS 1
@@ -43,6 +53,10 @@ typedef struct {
 	uvc_control_info_t whiteBalance;
 	uvc_control_info_t autoWhiteBalance;
     uvc_control_info_t incremental_exposure;
+    uvc_control_info_t powerLineFrequency;
+    uvc_control_info_t backlightCompensation;
+    uvc_control_info_t hue;
+    uvc_control_info_t gamma;
 } uvc_controls_t ;
 
 
@@ -100,7 +114,12 @@ typedef struct {
 - (float)getSaturation;
 - (BOOL)setSharpness:(float)value;
 - (float)getSharpness;
-
-
-
+- (BOOL)setPowerLineFrequency:(float)value;
+- (float)getPowerLineFrequency;
+- (BOOL)setBacklightCompensation:(float)value;
+- (float)getBacklightCompensation;
+- (BOOL)setHue:(float)value;
+- (float)getHue;
+- (BOOL)setGamma:(float)value;
+- (float)getGamma;
 @end

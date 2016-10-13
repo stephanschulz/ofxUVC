@@ -34,6 +34,7 @@ class ofxUVC {
     ~ofxUVC();
 
     void useCamera(int vendorId, int productId, int interfaceNum);
+    void useCamera2(int vendorId, int productId, int _interfaceNum,int _locationID);
     
     void setAutoExposure(bool enable);
     bool getAutoExposure();
@@ -62,7 +63,15 @@ class ofxUVC {
     void setSharpness(float value);
     float getSharpness();
 
-    
+    //-----newly added
+    void setPowerLineFrequency(float value);
+    float getPowerLineFrequency();
+    void setBacklightCompensation(float value);
+    float getBacklightCompensation();
+    void setHue(float value);
+    float getHue();
+    void setGamma(float value);
+    float getGamma();
     
     vector<ofxUVCControl> getCameraControls();
     

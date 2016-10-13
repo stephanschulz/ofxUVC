@@ -68,6 +68,26 @@ const uvc_controls_t uvc_controls = {
 		.selector = 0x0B,
 		.size = 1,
 	},
+    .powerLineFrequency = {
+        .unit = UVC_PROCESSING_UNIT_ID,
+        .selector = 0x05,
+        .size = 1,
+    },
+    .backlightCompensation = {
+        .unit = UVC_PROCESSING_UNIT_ID,
+        .selector = 0x01,
+        .size = 2,
+    },
+    .hue = {
+        .unit = UVC_PROCESSING_UNIT_ID,
+        .selector = 0x06,
+        .size = 2,
+    },
+    .gamma = {
+        .unit = UVC_PROCESSING_UNIT_ID,
+        .selector = 0x09,
+        .size = 2,
+    },
 };
 
 
@@ -75,10 +95,16 @@ const uvc_controls_t uvc_controls = {
 
 
 - (id)initWithLocationID:(UInt32)locationID {
+    
+   
+   
+    
 	if( self = [super init] ) {
 		interface = NULL;
 		
 		// Find All USB Devices, get their locationId and check if it matches the requested one
+        NSLog( @"Find All USB Devices");
+        
 		CFMutableDictionaryRef matchingDict = IOServiceMatching(kIOUSBDeviceClassName);
 		io_iterator_t serviceIterator;
 		IOServiceGetMatchingServices( kIOMasterPortDefault, matchingDict, &serviceIterator );
@@ -105,13 +131,18 @@ const uvc_controls_t uvc_controls = {
 			UInt32 currentLocationID = 0;
 			(*deviceInterface)->GetLocationID(deviceInterface, &currentLocationID);
 			
+            NSLog( @"currentLocationID %d ", (int)currentLocationID );
+            
 			if( currentLocationID == locationID ) {
 				// Yep, this is the USB Device that was requested!
+                 NSLog( @"Yep, this is the USB Device that was requested %d ", (int)currentLocationID );
+                
 				interface = [self getControlInferaceWithDeviceInterface:deviceInterface];
 				return self;
 			}
 		} // end while
 		
+      
 	}
 	return self;
 }
@@ -253,6 +284,9 @@ const uvc_controls_t uvc_controls = {
 }
 
 - (BOOL)setData:(long)value withLength:(int)length forSelector:(int)selector at:(int)unitId {
+    
+     printf("setData %lu \n",value);
+    
 	IOUSBDevRequest controlRequest;
 	controlRequest.bmRequestType = USBmakebmRequestType( kUSBOut, kUSBClass, kUSBInterface );
 	controlRequest.bRequest = UVC_SET_CUR;
@@ -266,7 +300,7 @@ const uvc_controls_t uvc_controls = {
 
 
 - (long)getDataFor:(int)type withLength:(int)length fromSelector:(int)selector at:(int)unitId {
-	long value = 0;
+    long value = 0;
 	IOUSBDevRequest controlRequest;
 	controlRequest.bmRequestType = USBmakebmRequestType( kUSBIn, kUSBClass, kUSBInterface );
 	controlRequest.bRequest = type;
@@ -276,7 +310,14 @@ const uvc_controls_t uvc_controls = {
 	controlRequest.wLenDone = 0;
 	controlRequest.pData = &value;
 	BOOL success = [self sendControlRequest:controlRequest];
-	return ( success ? value : 0 );
+    
+    printf("getDataFor %lu \n",value);
+    printf("length %i \n",length);
+
+    short int signed_value = *(short int*)&value;
+    printf("signed_value %i \n",signed_value);
+    
+	return ( success ? signed_value : 0 );
 }
 
 
@@ -285,6 +326,10 @@ const uvc_controls_t uvc_controls = {
 	uvc_range_t range = { 0, 0 };
 	range.min = [self getDataFor:UVC_GET_MIN withLength:control->size fromSelector:control->selector at:control->unit];
 	range.max = [self getDataFor:UVC_GET_MAX withLength:control->size fromSelector:control->selector at:control->unit];
+    
+    printf("range.min %i \n",range.min);
+printf("range.max %i \n",range.max);
+    
 	return range;
 }
 
@@ -311,6 +356,8 @@ const uvc_controls_t uvc_controls = {
 	uvc_range_t range = [self getRangeForControl:control];
 	
 	int intval = [self mapValue:value fromMin:0 max:1 toMin:range.min max:range.max];
+     printf("setValue intval %i \n",intval);
+    
 	return [self setData:intval withLength:control->size forSelector:control->selector at:control->unit];
 }
 
@@ -467,6 +514,7 @@ const uvc_controls_t uvc_controls = {
 }
 
 - (BOOL)setContrast:(float)value {
+    printf("contrast value %f \n",value);
 	return [self setValue:value forControl:&uvc_controls.contrast];
 }
 
@@ -475,6 +523,7 @@ const uvc_controls_t uvc_controls = {
 }
 
 - (BOOL)setSaturation:(float)value {
+    printf("saturation value %f \n",value);
 	return [self setValue:value forControl:&uvc_controls.saturation];
 }
 
@@ -483,6 +532,7 @@ const uvc_controls_t uvc_controls = {
 }
 
 - (BOOL)setSharpness:(float)value {
+    printf("sharpness value %f \n",value);
 	return [self setValue:value forControl:&uvc_controls.sharpness];
 }
 
@@ -490,6 +540,40 @@ const uvc_controls_t uvc_controls = {
 	return [self getValueForControl:&uvc_controls.sharpness];
 }
 
+- (BOOL)setPowerLineFrequency:(float)value {
+    printf("powerLineFrequency value %f \n",value);
+    return [self setValue:value forControl:&uvc_controls.powerLineFrequency];
+}
 
+- (float)getPowerLineFrequency {
+    return [self getValueForControl:&uvc_controls.powerLineFrequency];
+}
+
+- (BOOL)setBacklightCompensation:(float)value {
+    printf("backlightCompensation value %f \n",value);
+    return [self setValue:value forControl:&uvc_controls.backlightCompensation];
+}
+
+- (float)getBacklightCompensation {
+    return [self getValueForControl:&uvc_controls.backlightCompensation];
+}
+
+- (BOOL)setHue:(float)value {
+    printf("hue value %f \n",value);
+    return [self setValue:value forControl:&uvc_controls.hue];
+}
+
+- (float)getHue {
+    return [self getValueForControl:&uvc_controls.hue];
+}
+
+- (BOOL)setGamma:(float)value {
+    printf("gamma value %f \n",value);
+    return [self setValue:value forControl:&uvc_controls.gamma];
+}
+
+- (float)getGamma {
+    return [self getValueForControl:&uvc_controls.gamma];
+}
 
 @end

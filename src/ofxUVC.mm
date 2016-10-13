@@ -9,6 +9,12 @@ void ofxUVC::useCamera(int vendorId, int productId, int _interfaceNum){
 	cameraControl = [[UVCCameraControl alloc] initWithVendorID:vendorId productID:productId interfaceNum:_interfaceNum];
     cameraInited = true;
 }
+void ofxUVC::useCamera2(int vendorId, int productId, int _interfaceNum,int _locationID){
+  //  cameraControl = [[UVCCameraControl alloc] initWithVendorID:vendorId productID:productId interfaceNum:_interfaceNum];
+    cameraControl = [[UVCCameraControl alloc] initWithLocationID:_locationID]; //] VendorID:vendorId productID:productId interfaceNum:_interfaceNum];
+
+    cameraInited = true;
+}
 
 ofxUVC::~ofxUVC(){
     if(cameraInited){
@@ -108,6 +114,37 @@ float ofxUVC::getSharpness(){
     return [cameraControl getSharpness];
 }
 
+//-----newly added
+void ofxUVC::setPowerLineFrequency(float value){
+    [cameraControl setPowerLineFrequency:value];
+}
+float ofxUVC::getPowerLineFrequency(){
+    return [cameraControl getPowerLineFrequency];
+}
+
+void ofxUVC::setBacklightCompensation(float value){
+    [cameraControl setBacklightCompensation:value];
+}
+
+float ofxUVC::getBacklightCompensation(){
+    return [cameraControl getBacklightCompensation];
+}
+
+float ofxUVC::getHue(){
+    return [cameraControl getHue];
+}
+
+void ofxUVC::setHue(float value){
+    [cameraControl setHue:value];
+}
+
+float ofxUVC::getGamma(){
+    return [cameraControl getGamma];
+}
+
+void ofxUVC::setGamma(float value){
+    [cameraControl setGamma:value];
+}
 
 vector<ofxUVCControl> ofxUVC::getCameraControls(){
     vector<ofxUVCControl> result;
@@ -171,6 +208,26 @@ vector<ofxUVCControl> ofxUVC::getCameraControls(){
     autoWhiteBalance.name = "autoWhiteBalance";
     autoWhiteBalance.status = [cameraControl getInfoForControl:&[cameraControl getControls]->autoWhiteBalance];
     result.push_back(autoWhiteBalance);
+    
+    ofxUVCControl powerLineFrequency;
+    powerLineFrequency.name = "powerLineFrequency";
+    powerLineFrequency.status = [cameraControl getInfoForControl:&[cameraControl getControls]->powerLineFrequency];
+    result.push_back(powerLineFrequency);
+    
+    ofxUVCControl backLightCompensation;
+    backLightCompensation.name = "backLightCompensation";
+    backLightCompensation.status = [cameraControl getInfoForControl:&[cameraControl getControls]->backlightCompensation];
+    result.push_back(powerLineFrequency);
+    
+    ofxUVCControl hue;
+    hue.name = "hue";
+    hue.status = [cameraControl getInfoForControl:&[cameraControl getControls]->hue];
+    result.push_back(hue);
+
+    ofxUVCControl gamma;
+    gamma.name = "gamma";
+    gamma.status = [cameraControl getInfoForControl:&[cameraControl getControls]->gamma];
+    result.push_back(gamma);
     
   //  ofxUVCControl incremental_exposure;
 
