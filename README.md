@@ -24,6 +24,7 @@ There is a good thread on UVC control on the OF forum: [here](http://forum.openf
 
 * [Aptina 292A-IPC-AR0330] (http://www.kurokesu.com/shop/cameras/CAMUSB1)
 
+
 ### UVC Test App
 
 This repo also includes a Mac app for testing the UVC support of your camera: [uvc_test_app](https://github.com/atduskgreg/ofxUVC/downloads). This app pulls vendorId, productId, and interfaceNum values from a YAML file (data/camera_settings.yml in the download). To select your camera, change the cameraToUse value in that YAML file to point at your camera. If your camera is not listed there, you can discover its settings using the instructions below and add them to the YAML file manually. If you do so, please submit a pull request or otherwise contribute them here.
