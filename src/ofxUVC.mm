@@ -179,6 +179,11 @@ void ofxUVC::setRoll(float value){
     [cameraControl setRoll:value];
 }
 
+void ofxUVC::printDefaults(){
+    [cameraControl printDefaults];
+}
+
+
 vector<ofxUVCControl> ofxUVC::getCameraControls(){
     vector<ofxUVCControl> result;
     

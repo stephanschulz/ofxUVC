@@ -85,6 +85,8 @@ class ofxUVC {
     void setRoll(float value);
     float getRoll();
     
+    void printDefaults();
+    
     vector<ofxUVCControl> getCameraControls();
     
   protected:

@@ -4,114 +4,117 @@
 //http://www.usb.org/developers/docs/devclass_docs/USB_Video_Class_1_5.zip
 //UVC 1.5 Class specification.pdf
 
-const uvc_controls_t uvc_controls = {
-	.autoExposure = {
-		.unit = UVC_INPUT_TERMINAL_ID,
-		.selector = 0x02, //CT_AE_MODE_CONTROL
-		.size = 1,
-	},
-	.exposure = {
-		.unit = UVC_INPUT_TERMINAL_ID,
-		.selector = 0x04, //CT_EXPOSURE_TIME_ABSOLUTE_CONTROL
-		.size = 4,
-	},
-    
-    .incremental_exposure = {
-		.unit = UVC_INPUT_TERMINAL_ID,
-		.selector = 0x05, //CT_EXPOSURE_TIME_ABSOLUTE_CONTROL
-		.size = 1,
-	},
-	.absoluteFocus = {
-		.unit = 0x09,
-		.selector = 0x03,
-		.size = 8,
-	},	
-	.autoFocus = {
-		.unit = UVC_INPUT_TERMINAL_ID,
-		.selector = 0x08, //CT_FOCUS_AUTO_CONTROL
-		.size = 1,
-	},
-	.focus = {
-		.unit = UVC_INPUT_TERMINAL_ID,
-		.selector = 0x06, //CT_FOCUS_ABSOLUTE_CONTROL
-		.size = 2,
-	},
-	.brightness = {
-		.unit = UVC_PROCESSING_UNIT_ID,
-		.selector = 0x02,
-		.size = 2,
-	},
-	.contrast = {
-		.unit = UVC_PROCESSING_UNIT_ID,
-		.selector = 0x03,
-		.size = 2,
-	},
-	.gain = {
-		.unit = UVC_PROCESSING_UNIT_ID,
-		.selector = 0x04,
-		.size = 2,
-	},
-	.saturation = {
-		.unit = UVC_PROCESSING_UNIT_ID,
-		.selector = 0x07,
-		.size = 2,
-	},
-	.sharpness = {
-		.unit = UVC_PROCESSING_UNIT_ID,
-		.selector = 0x08,
-		.size = 2,
-	},
-	.whiteBalance = {
-		.unit = UVC_PROCESSING_UNIT_ID,
-		.selector = 0x0A,
-		.size = 2,
-	},
-	.autoWhiteBalance = {
-		.unit = UVC_PROCESSING_UNIT_ID,
-		.selector = 0x0B,
-		.size = 1,
-	},
-    .powerLineFrequency = {
-        .unit = UVC_PROCESSING_UNIT_ID,
-        .selector = 0x05,
-        .size = 1,
-    },
-    .backlightCompensation = {
-        .unit = UVC_PROCESSING_UNIT_ID,
-        .selector = 0x01,
-        .size = 2,
-    },
-    .autoHue = {
-        .unit = UVC_PROCESSING_UNIT_ID,
-        .selector = 0x10, //PU_HUE_AUTO_CONTROL
-        .size = 1,
-    },
-    .hue = {
-        .unit = UVC_PROCESSING_UNIT_ID,
-        .selector = 0x06,
-        .size = 2,
-    },
-    .gamma = {
-        .unit = UVC_PROCESSING_UNIT_ID,
-        .selector = 0x09,
-        .size = 2,
-    },
-    .zoom = {
-        .unit = UVC_INPUT_TERMINAL_ID, //CT_ZOOM_ABSOLUTE_CONTROL
-        .selector = 0x0B,
-        .size = 2,
-    },
-    .pantilt = {
-        .unit = UVC_INPUT_TERMINAL_ID, //CT_PANTILT_ABSOLUTE_CONTROL
-        .selector = 0x0D,
-        .size = 4,
-    },
-    .roll = {
-        .unit = UVC_INPUT_TERMINAL_ID, //CT_ROLL_ABSOLUTE_CONTROL
-        .selector = 0x0F,
-        .size = 2,
-    },
-};
+//const uvc_controls_t uvc_controls = {
+//	.autoExposure = {
+//		.unit = UVC_INPUT_TERMINAL_ID,
+//		.selector = 0x02, //CT_AE_MODE_CONTROL
+//		.size = 1,
+//        .name = @"autoExposure",
+//	},
+//	.exposure = {
+//		.unit = UVC_INPUT_TERMINAL_ID,
+//		.selector = 0x04, //CT_EXPOSURE_TIME_ABSOLUTE_CONTROL
+//		.size = 4,
+//	},
+//    
+//    .incremental_exposure = {
+//		.unit = UVC_INPUT_TERMINAL_ID,
+//		.selector = 0x05, //CT_EXPOSURE_TIME_ABSOLUTE_CONTROL
+//		.size = 1,
+//	},
+//	.absoluteFocus = {
+//		.unit = 0x09,
+//		.selector = 0x03,
+//		.size = 8,
+//	},	
+//	.autoFocus = {
+//		.unit = UVC_INPUT_TERMINAL_ID,
+//		.selector = 0x08, //CT_FOCUS_AUTO_CONTROL
+//		.size = 1,
+//	},
+//	.focus = {
+//		.unit = UVC_INPUT_TERMINAL_ID,
+//		.selector = 0x06, //CT_FOCUS_ABSOLUTE_CONTROL
+//		.size = 2,
+//	},
+//	.brightness = {
+//		.unit = UVC_PROCESSING_UNIT_ID,
+//		.selector = 0x02,
+//		.size = 2,
+//	},
+//	.contrast = {
+//		.unit = UVC_PROCESSING_UNIT_ID,
+//		.selector = 0x03,
+//		.size = 2,
+//	},
+//	.gain = {
+//		.unit = UVC_PROCESSING_UNIT_ID,
+//		.selector = 0x04,
+//		.size = 2,
+//	},
+//	.saturation = {
+//		.unit = UVC_PROCESSING_UNIT_ID,
+//		.selector = 0x07,
+//		.size = 2,
+//	},
+//	.sharpness = {
+//		.unit = UVC_PROCESSING_UNIT_ID,
+//		.selector = 0x08,
+//		.size = 2,
+//	},
+//	.whiteBalance = {
+//		.unit = UVC_PROCESSING_UNIT_ID,
+//		.selector = 0x0A,
+//		.size = 2,
+//	},
+//	.autoWhiteBalance = {
+//		.unit = UVC_PROCESSING_UNIT_ID,
+//		.selector = 0x0B,
+//		.size = 1,
+//	},
+//    .powerLineFrequency = {
+//        .unit = UVC_PROCESSING_UNIT_ID,
+//        .selector = 0x05,
+//        .size = 1,
+//    },
+//    .backlightCompensation = {
+//        .unit = UVC_PROCESSING_UNIT_ID,
+//        .selector = 0x01,
+//        .size = 2,
+//    },
+//    .autoHue = {
+//        .unit = UVC_PROCESSING_UNIT_ID,
+//        .selector = 0x10, //PU_HUE_AUTO_CONTROL
+//        .size = 1,
+//    },
+//    .hue = {
+//        .unit = UVC_PROCESSING_UNIT_ID,
+//        .selector = 0x06,
+//        .size = 2,
+//    },
+//    .gamma = {
+//        .unit = UVC_PROCESSING_UNIT_ID,
+//        .selector = 0x09,
+//        .size = 2,
+//    },
+//    .zoom = {
+//        .unit = UVC_INPUT_TERMINAL_ID, //CT_ZOOM_ABSOLUTE_CONTROL
+//        .selector = 0x0B,
+//        .size = 2,
+//        .name = @"zoom",
+//    },
+//    .pantilt = {
+//        .unit = UVC_INPUT_TERMINAL_ID, //CT_PANTILT_ABSOLUTE_CONTROL
+//        .selector = 0x0D,
+//        .size = 4,
+//        .name = @"pantilt",
+//    },
+//    .roll = {
+//        .unit = UVC_INPUT_TERMINAL_ID, //CT_ROLL_ABSOLUTE_CONTROL
+//        .selector = 0x0F,
+//        .size = 2,
+//    },
+//};
 
 
 @implementation UVCCameraControl
@@ -300,12 +303,6 @@ const uvc_controls_t uvc_controls = {
 	return YES;
 }
 
-
-- (long) getInfoForControl:(uvc_control_info_t *)control{
-    return [self getDataFor:UVC_GET_INFO withLength:1  fromSelector:control->selector at:control->unit];
-    
-}
-
 - (BOOL)setData:(int)value withLength:(int)length forSelector:(int)selector at:(int)unitId {
     
     
@@ -338,30 +335,41 @@ https://github.com/kazu/UVCCameraControl
 //    value[0] = int(100);
 //    value[1] = int(100);
 //     NSLog(@"setData2 pan %lu tilt %lu",value[0],value[1]);
-//    NSLog(@"setData2 pan %i tilt %i",value[0],value[1]);
     
 //    printf("setData2 value0 %d \n",value[0]);
 //    printf("setData2 value1 %d \n",value[1]);
-    int p = 150;
-    int t = 400;
+//    int p = 150;
+//    int t = 400;
+//    
+//    int vv = p << 16;
+//    vv += t;
     
-    int vv = p << 16;
-    vv += t;
+//    long pan = value[0];
+//    int tilt = value[1];
+//    uint8_t data[8];
+//    INT_TO_DW(pan, data + 0);
+//    INT_TO_DW(tilt, data + 4);
     
-   
+//     int vvv = 150; //985087;
     
-     int vvv = 150; //985087;
-    
-     printf("setData2 vvv %d \n",vvv);
+//     printf("setData2 vvv %d \n",vvv);
 //    unsigned char x = ...;
 //    int y = x << 16;
     
     
-    long			tmpLong = 0x00000000;
-    memcpy(&tmpLong,value,length);
+//    long			tmpLong = 0x00000000;
+//    memcpy(&tmpLong,value,length);
 //
 //    printf("setData2 vv %d \n",vv);
-
+//    ret = libusb_control_transfer(
+//                                  devh->usb_devh,
+//                                  REQ_TYPE_SET, UVC_SET_CUR,
+//                                  UVC_CT_PANTILT_ABSOLUTE_CONTROL << 8,
+//                                  uvc_get_camera_terminal(devh)->bTerminalID << 8 | devh->info->ctrl_if.bInterfaceNumber,
+//                                  data,
+//                                  sizeof(data),
+//                                  0);
+    
 //    printf("control->size %i \n",size);
     printf("setData2->selector %i \n",selector);
     printf("setData2->unit %i \n",unitId);
@@ -395,12 +403,12 @@ https://github.com/kazu/UVCCameraControl
 	controlRequest.pData = &value;
 	BOOL success = [self sendControlRequest:controlRequest];
     
-    printf("getDataFor %lu \n",value);
-    printf("length %i \n",length);
+//    printf("getDataFor %lu \n",value);
+//    printf("length %i \n",length);
 
 //    short int signed_value = *(short int*)&value;
     int signed_value = *(int*)&value;
-    printf("signed_value %i \n",signed_value);
+//    printf("signed_value %i \n",signed_value);
     
 	return ( success ? signed_value : 0 );
 }
@@ -417,6 +425,9 @@ https://github.com/kazu/UVCCameraControl
     range.max = [self getDataFor:UVC_GET_MAX withLength:control->size fromSelector:control->selector at:control->unit];
     printf("range.max %i \n",range.max);
     
+//    long t = [self getDefaultForControl:control];
+//    printf("default %lu \n",t);
+    
 	return range;
 }
 
@@ -426,6 +437,13 @@ https://github.com/kazu/UVCCameraControl
 	return toMin + (toMax - toMin) * ((value - fromMin) / (fromMax - fromMin));
 }
 
+- (long) getInfoForControl:(const uvc_control_info_t *)control{
+    return [self getDataFor:UVC_GET_INFO withLength:control->size fromSelector:control->selector at:control->unit];
+}
+- (long) getDefaultForControl:(const uvc_control_info_t *)control{
+    printf("control->selector %i \n",control->selector);
+    return [self getDataFor:UVC_GET_DEF withLength:control->size fromSelector:control->selector at:control->unit];
+}
 
 // Get a normalized value
 - (float)getValueForControl:(const uvc_control_info_t *)control {
@@ -448,6 +466,8 @@ https://github.com/kazu/UVCCameraControl
     
     printf("(BOOL)setValue:(float)value forControl\n");
     
+
+
 	// TODO: Cache the range somewhere?
 	uvc_range_t range = [self getRangeForControl:control];
 	
@@ -718,11 +738,12 @@ https://github.com/kazu/UVCCameraControl
     //        valToSend = (~valToSend + 1);
     
     valToSend = 100 + value*400 ;
-    NSLog(@"\t\tabs val is %d",valToSend);
+//    NSLog(@"\t\tabs val is %d",valToSend);
     int paramSize = 8;
     void			*bytesToSend = malloc(paramSize);
     bzero(bytesToSend,paramSize);
     memcpy(bytesToSend,&valToSend,paramSize);
+    
     
     
     [self setData2:bytesToSend
@@ -750,6 +771,8 @@ https://github.com/kazu/UVCCameraControl
     
       printf("setPantilt value0 %f \n",value[0]);
       printf("setPantilt value1 %f \n",value[1]);
+    
+ 
 //    value[0] = tilt*100;
 //    value[1] = pan*100;
     
@@ -757,30 +780,54 @@ https://github.com/kazu/UVCCameraControl
     NSLog(@"setPanTilt pan %d tilt %d",value[0],value[1]);
 #endif
     
-    int16_t value2[2];
+//    int16_t value2[2];
+//    
+//    value2[0] = 100;
+//    value2[1] = 700;
+    //https://github.com/ktossell/libuvc/blob/master/src/ctrl-gen.c
+    //https://github.com/ghafran/ptz
+    //https://int80k.com/libuvc/doc/
+//    int pan = (0.5-value[0])*3600;
+//    int tilt = (0.5-value[1])*3600;
+    int pan = (value[0])*3600;
+    int tilt = (value[1])*3600;
+
     
-    value2[0] = 100;
-    value2[1] = 700;
+    printf("INT_TO_DW pan %d \n",pan);
+    printf("INT_TO_DW tilt %d \n",tilt);
     
+    uint8_t data[8];
+    INT_TO_DW(pan, data + 0); //pan
+    INT_TO_DW(tilt, data + 4); //tilt
+    for(int i=0; i<8; i++){
+//      printf("setPantilt data %d %d \n",i,data[i]);
+         printf("%d , ",data[i]);
+    }
+    printf("\n");
+    
+//     printf("setPantilt data %d \n",data);
+//    printf("setPantilt sizeof %lu \n",sizeof(data));
+//    printf("setPantilt size %i \n", uvc_controls.pantilt.size);
+   
 //    int vv = 2000;
-    NSLog(@"setPanTilt pan %d tilt %d",value2[0],value2[1]);
+//    NSLog(@"setPanTilt pan %d tilt %d",value2[0],value2[1]);
     
-    int			valToSend = 0x0000;
+//    int			valToSend = 0x0000;
     
 //    valToSend = (int)labs(param->val);
 //    //NSLog(@"\t\tabs val is %d",valToSend);
 //    if (param->val < 0)
 //        valToSend = (~valToSend + 1);
 
-    valToSend = value2[1] ;
-    NSLog(@"\t\tabs val is %d",valToSend);
-    int paramSize = 8;
-    void			*bytesToSend = malloc(paramSize);
-    bzero(bytesToSend,paramSize);
-    memcpy(bytesToSend,&valToSend,paramSize);
+//    valToSend = value2[1] ;
+//    NSLog(@"\t\tabs val is %d",valToSend);
+//    int paramSize = 8;
+//    void			*bytesToSend = malloc(paramSize);
+//    bzero(bytesToSend,paramSize);
+//    memcpy(bytesToSend,&data,paramSize);
 
     
-    [self setData2:bytesToSend
+    [self setData2:data
         withLength:uvc_controls.pantilt.size
        forSelector:uvc_controls.pantilt.selector
                 at:uvc_controls.pantilt.unit];
@@ -824,5 +871,13 @@ https://github.com/kazu/UVCCameraControl
 }
 - (float)getRoll {
     return [self getValueForControl:&uvc_controls.roll];
+}
+
+- (BOOL) printDefaults{
+//    NSLog(@"%s",__func__);
+
+    printf("default %s %lu \n", [uvc_controls.autoExposure.name UTF8String], [self getDefaultForControl:&uvc_controls.autoExposure]);
+    printf("default %s %lu \n", [uvc_controls.pantilt.name UTF8String], [self getDefaultForControl:&uvc_controls.pantilt]);
+    printf("default %s %lu \n", [uvc_controls.zoom.name UTF8String], [self getDefaultForControl:&uvc_controls.zoom]);
 }
 @end
