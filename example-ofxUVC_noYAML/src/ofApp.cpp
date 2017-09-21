@@ -25,7 +25,6 @@
  
  */
 
-//for logitech c920 set #define USE_C920 in UVCCameraControl.h
 //--------------------------------------------------------------
 void ofApp::setup(){
     
@@ -48,8 +47,8 @@ void ofApp::setup(){
 //    vidSource.initGrabber(camWidth,camHeight);
     vidSource.setup(camWidth,camHeight);
    
-//    ofLog()<<"camID "<<camID<<", allLocationIDs[camID] "<<allLocationIDs[camID];
-    uvcController.setup("camera",camID,0); //allLocationIDs[camID]);
+    ofLog()<<"camID "<<camID<<", allLocationIDs[camID] "<<allLocationIDs[camID];
+    uvcController.setup("camera",camID,allLocationIDs[camID]);
     
     gui_UVCcontroller.setup("UVC");
     gui_UVCcontroller.setPosition(10,10);
@@ -60,7 +59,7 @@ void ofApp::setup(){
     uvcController.initDone = true;
     uvcController.init();
 
-   
+
     bShowGUI = true;
 }
 
@@ -81,8 +80,7 @@ void ofApp::update(){
 void ofApp::draw(){
 
 //    vidSource.draw(0, 0);
-//    tex.draw(0,0, ofGetWidth(), ofGetHeight());
-    tex.draw(0,0, camWidth/1.3, camHeight/1.3);
+    tex.draw(0,0, ofGetWidth(), ofGetHeight());
     
     if(bShowGUI){
         gui_UVCcontroller.draw();
@@ -93,8 +91,6 @@ void ofApp::exit(){
 }
 
 void ofApp::collectCameraInfo(){
-    
-    /*
     allCameraNames.clear();
     allCameraNames = cameraDeviceManager.listVideoDevicesByName();
     
@@ -140,7 +136,7 @@ void ofApp::collectCameraInfo(){
     }else{
         ofLog()<<"no devices found";
     }
-    */
+    
 }
 
 //--------------------------------------------------------------
@@ -170,14 +166,6 @@ void ofApp::keyPressed(int key){
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
 
-    if(key == 'q'){
-        uvcController.panValue = 1;
-
-    }
-    if(key == 'w'){
-        uvcController.panValue = 0;
-        
-    }
 }
 
 //--------------------------------------------------------------

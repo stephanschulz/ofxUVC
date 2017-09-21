@@ -53,6 +53,8 @@ public:
        ofParameter<float> tiltValue, old_tiltValue;
        ofParameter<float> rollValue, old_rollValue;
     
+    ofParameter<bool> printDefaults;
+    
     bool bShowGUI;
     bool initDone;
     int initStage;
@@ -65,6 +67,8 @@ public:
         
         parameters.setName(_name);
         parameters.add(getCamValues.set("getCamValues",false));
+         parameters.add(printDefaults.set("printDefaults",false));
+        
         parameters.add(aFocus.set("aFocus",false));
         parameters.add(focusValue.set("focusValue",0.225,0,1.0));
         //   parameters.getFloatSlider("focusValue").setFineStep(0.01);
@@ -454,6 +458,11 @@ public:
         if(rollValue != old_rollValue){
             uvcControl.setRoll(rollValue);
             old_rollValue = rollValue;
+        }
+        
+        if(printDefaults == true ){
+            printDefaults = false;
+            uvcControl.printDefaults();
         }
     }
 };

@@ -9,7 +9,7 @@
 
 //check inside UVCCameraControl if #define USE_C920 is set
 #include "UVC_controller.h"
-//#include "ofxCameraDeviceTree.h"
+#include "ofxCameraDeviceTree.h"
 
 
 class ofApp : public ofBaseApp{
@@ -42,9 +42,9 @@ class ofApp : public ofBaseApp{
     UVC_controller uvcController;
      ofxPanel gui_UVCcontroller;
     
-//    ofxCameraDeviceTree cameraDeviceManager;
-//    vector<string> allCameraNames;
-//    vector<string> allUniqueIDs;
-//    vector<unsigned int> allLocationIDs;
-//    
+    ofxCameraDeviceTree cameraDeviceManager;
+    vector<string> allCameraNames;
+    vector<string> allUniqueIDs;
+    vector<unsigned int> allLocationIDs;
+    
 };
