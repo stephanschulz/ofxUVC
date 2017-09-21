@@ -7,14 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29D734F0DDECC8C5978185D7 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00A1BFCBB38848AD0E0C8539 /* testApp.cpp */; };
-		39119CBB82BF8341392FF5CA /* UVCCameraControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D78ADDA555C8F6724E9AD292 /* UVCCameraControl.m */; };
-		9BAEC2935795C61674F508DD /* ofxUVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1A2AA5DA1BD09A76CD6DD53 /* ofxUVC.mm */; };
+		1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 907C5B5E104864A2D3A25745 /* ofxToggle.cpp */; };
+		483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D67A00EB899FAC09430597 /* ofxLabel.cpp */; };
+		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
+		6CE700E31816FE86BE8554E0 /* UVCCameraControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9613B24167BAD06A1A1222D9 /* UVCCameraControl.m */; };
+		837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F2C6477A769C03A56D1401 /* ofxSlider.cpp */; };
+		856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9604B925D32EE39065747725 /* ofxBaseGui.cpp */; };
+		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
+		B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */; };
+		D49A71E51F6974520056336F /* USBBusProber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49A71DE1F6974470056336F /* USBBusProber.framework */; };
+		D49A71E61F6974520056336F /* VVUVCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49A71E01F6974470056336F /* VVUVCKit.framework */; };
+		D49A71E71F69745A0056336F /* VVUVCKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D49A71E01F6974470056336F /* VVUVCKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D49A71E81F69745A0056336F /* USBBusProber.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D49A71DE1F6974470056336F /* USBBusProber.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
+		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		E50D422DEE3E70C9EEF113C7 /* ofxUVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 774F1CA70ABF4548E1DC47A6 /* ofxUVC.mm */; };
+		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D49A71DD1F6974470056336F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49A71D71F6974470056336F /* VVUVCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96CCFE5F19D6BFAD000B1B2C;
+			remoteInfo = USBBusProber;
+		};
+		D49A71DF1F6974470056336F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49A71D71F6974470056336F /* VVUVCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96C2712E19D5695B00705982;
+			remoteInfo = VVUVCKit;
+		};
+		D49A71E11F6974470056336F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49A71D71F6974470056336F /* VVUVCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9627739C19D56C69001EDD16;
+			remoteInfo = "UVC Test App";
+		};
+		D49A71E31F69744C0056336F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49A71D71F6974470056336F /* VVUVCKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9627739B19D56C69001EDD16;
+			remoteInfo = "UVC Test App";
+		};
 		E4328147138ABC890047C5CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
@@ -38,24 +78,45 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D49A71E71F69745A0056336F /* VVUVCKit.framework in CopyFiles */,
+				D49A71E81F69745A0056336F /* USBBusProber.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00A1BFCBB38848AD0E0C8539 /* testApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = testApp.cpp; path = src/testApp.cpp; sourceTree = SOURCE_ROOT; };
-		2D129AB0F7D46B8DFCEADEDB /* testApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
-		4928C6D052B696427D7F98FB /* ofxUVC.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUVC.h; path = ../../../addons/ofxUVC/src/ofxUVC.h; sourceTree = SOURCE_ROOT; };
-		B1A2AA5DA1BD09A76CD6DD53 /* ofxUVC.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxUVC.mm; path = ../../../addons/ofxUVC/src/ofxUVC.mm; sourceTree = SOURCE_ROOT; };
-		D78ADDA555C8F6724E9AD292 /* UVCCameraControl.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = UVCCameraControl.m; path = ../../../addons/ofxUVC/src/UVCCameraControl.m; sourceTree = SOURCE_ROOT; };
+		0A1DAC09F322AE313A40706D /* ofxToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxToggle.h; path = ../../../addons/ofxGui/src/ofxToggle.h; sourceTree = SOURCE_ROOT; };
+		15F2C6477A769C03A56D1401 /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSlider.cpp; path = ../../../addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
+		17E65988300FBD9AAA2CD0CA /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGui.h; path = ../../../addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
+		1C0DA2561397A7DE0246858B /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGuiGroup.h; path = ../../../addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
+		2834D88A62CD23F3DE2C47D1 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxButton.h; path = ../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
+		295E8DDB12FD0EADD5B93FFE /* UVC_controller.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UVC_controller.h; path = src/UVC_controller.h; sourceTree = SOURCE_ROOT; };
+		52AFA1F08C420992CAAAE648 /* ofxSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSlider.h; path = ../../../addons/ofxGui/src/ofxSlider.h; sourceTree = SOURCE_ROOT; };
+		774F1CA70ABF4548E1DC47A6 /* ofxUVC.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxUVC.mm; path = ../../../addons/ofxUVC2/src/ofxUVC.mm; sourceTree = SOURCE_ROOT; };
+		78D67A00EB899FAC09430597 /* ofxLabel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxLabel.cpp; path = ../../../addons/ofxGui/src/ofxLabel.cpp; sourceTree = SOURCE_ROOT; };
+		802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSliderGroup.cpp; path = ../../../addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
+		87F26B4B24CBD428AD9EEBAA /* ofxBaseGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBaseGui.h; path = ../../../addons/ofxGui/src/ofxBaseGui.h; sourceTree = SOURCE_ROOT; };
+		89449E3044D456F7DE7BEA14 /* ofxPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxPanel.h; path = ../../../addons/ofxGui/src/ofxPanel.h; sourceTree = SOURCE_ROOT; };
+		907C5B5E104864A2D3A25745 /* ofxToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxToggle.cpp; path = ../../../addons/ofxGui/src/ofxToggle.cpp; sourceTree = SOURCE_ROOT; };
+		9604B925D32EE39065747725 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = ../../../addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
+		9613B24167BAD06A1A1222D9 /* UVCCameraControl.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = UVCCameraControl.m; path = ../../../addons/ofxUVC2/src/UVCCameraControl.m; sourceTree = SOURCE_ROOT; };
+		AFDB26E4EDE5AE0E02BF6EA6 /* ofxUVC.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUVC.h; path = ../../../addons/ofxUVC2/src/ofxUVC.h; sourceTree = SOURCE_ROOT; };
+		B87C60311EC1FE841C1ECD89 /* ofxLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxLabel.h; path = ../../../addons/ofxGui/src/ofxLabel.h; sourceTree = SOURCE_ROOT; };
+		C70D8946940288799E82131E /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSliderGroup.h; path = ../../../addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
+		C88333E71C9457E441C33474 /* ofxButton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxButton.cpp; path = ../../../addons/ofxGui/src/ofxButton.cpp; sourceTree = SOURCE_ROOT; };
+		D49A71D71F6974470056336F /* VVUVCKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VVUVCKit.xcodeproj; path = ../VVUVCKit/VVUVCKit.xcodeproj; sourceTree = "<group>"; };
+		DF85F606EA64305083CAB375 /* UVCCameraControl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UVCCameraControl.h; path = ../../../addons/ofxUVC2/src/UVCCameraControl.h; sourceTree = SOURCE_ROOT; };
+		E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxPanel.cpp; path = ../../../addons/ofxGui/src/ofxPanel.cpp; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* example-ofxUVCDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example-ofxUVCDebug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		F70ACFB13004E1CC2BCD3999 /* UVCCameraControl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UVCCameraControl.h; path = ../../../addons/ofxUVC/src/UVCCameraControl.h; sourceTree = SOURCE_ROOT; };
+		ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGuiGroup.cpp; path = ../../../addons/ofxGui/src/ofxGuiGroup.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D49A71E51F6974520056336F /* USBBusProber.framework in Frameworks */,
+				D49A71E61F6974520056336F /* VVUVCKit.framework in Frameworks */,
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,15 +133,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		34F8AF2008FF2A79FD29782E /* src */ = {
+		480A780D8D0308AE4A368801 /* ofxGui */ = {
 			isa = PBXGroup;
 			children = (
-				4928C6D052B696427D7F98FB /* ofxUVC.h */,
-				B1A2AA5DA1BD09A76CD6DD53 /* ofxUVC.mm */,
-				F70ACFB13004E1CC2BCD3999 /* UVCCameraControl.h */,
-				D78ADDA555C8F6724E9AD292 /* UVCCameraControl.m */,
+				A763ED608B35AE3310251DEE /* src */,
 			);
-			name = src;
+			name = ofxGui;
+			sourceTree = "<group>";
+		};
+		52B0A71F0E315C4EEF99465B /* ofxUVC2 */ = {
+			isa = PBXGroup;
+			children = (
+				EEDD4FC6720FE05C7A816AC9 /* src */,
+			);
+			name = ofxUVC2;
 			sourceTree = "<group>";
 		};
 		6948EE371B920CB800B5AC1A /* local_addons */ = {
@@ -88,12 +156,47 @@
 			name = local_addons;
 			sourceTree = "<group>";
 		};
+		A763ED608B35AE3310251DEE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9604B925D32EE39065747725 /* ofxBaseGui.cpp */,
+				87F26B4B24CBD428AD9EEBAA /* ofxBaseGui.h */,
+				C88333E71C9457E441C33474 /* ofxButton.cpp */,
+				2834D88A62CD23F3DE2C47D1 /* ofxButton.h */,
+				17E65988300FBD9AAA2CD0CA /* ofxGui.h */,
+				ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */,
+				1C0DA2561397A7DE0246858B /* ofxGuiGroup.h */,
+				78D67A00EB899FAC09430597 /* ofxLabel.cpp */,
+				B87C60311EC1FE841C1ECD89 /* ofxLabel.h */,
+				E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */,
+				89449E3044D456F7DE7BEA14 /* ofxPanel.h */,
+				15F2C6477A769C03A56D1401 /* ofxSlider.cpp */,
+				52AFA1F08C420992CAAAE648 /* ofxSlider.h */,
+				802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */,
+				C70D8946940288799E82131E /* ofxSliderGroup.h */,
+				907C5B5E104864A2D3A25745 /* ofxToggle.cpp */,
+				0A1DAC09F322AE313A40706D /* ofxToggle.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				F5B54E39CF589CA1E5C94C02 /* ofxUVC */,
+				480A780D8D0308AE4A368801 /* ofxGui */,
+				52B0A71F0E315C4EEF99465B /* ofxUVC2 */,
 			);
 			name = addons;
+			sourceTree = "<group>";
+		};
+		D49A71D81F6974470056336F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D49A71DE1F6974470056336F /* USBBusProber.framework */,
+				D49A71E01F6974470056336F /* VVUVCKit.framework */,
+				D49A71E21F6974470056336F /* UVC Test App.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
@@ -114,6 +217,7 @@
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
 				E4B69B5B0A3A1756003C02F2 /* example-ofxUVCDebug.app */,
+				D49A71D71F6974470056336F /* VVUVCKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,8 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				00A1BFCBB38848AD0E0C8539 /* testApp.cpp */,
-				2D129AB0F7D46B8DFCEADEDB /* testApp.h */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				295E8DDB12FD0EADD5B93FFE /* UVC_controller.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -136,12 +241,15 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
-		F5B54E39CF589CA1E5C94C02 /* ofxUVC */ = {
+		EEDD4FC6720FE05C7A816AC9 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				34F8AF2008FF2A79FD29782E /* src */,
+				AFDB26E4EDE5AE0E02BF6EA6 /* ofxUVC.h */,
+				774F1CA70ABF4548E1DC47A6 /* ofxUVC.mm */,
+				DF85F606EA64305083CAB375 /* UVCCameraControl.h */,
+				9613B24167BAD06A1A1222D9 /* UVCCameraControl.m */,
 			);
-			name = ofxUVC;
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +267,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D49A71E41F69744C0056336F /* PBXTargetDependency */,
 				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
 			);
 			name = "example-ofxUVC";
@@ -192,6 +301,10 @@
 					ProductGroup = E4328144138ABC890047C5CB /* Products */;
 					ProjectRef = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
 				},
+				{
+					ProductGroup = D49A71D81F6974470056336F /* Products */;
+					ProjectRef = D49A71D71F6974470056336F /* VVUVCKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -201,6 +314,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		D49A71DE1F6974470056336F /* USBBusProber.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = USBBusProber.framework;
+			remoteRef = D49A71DD1F6974470056336F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D49A71E01F6974470056336F /* VVUVCKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VVUVCKit.framework;
+			remoteRef = D49A71DF1F6974470056336F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D49A71E21F6974470056336F /* UVC Test App.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "UVC Test App.app";
+			remoteRef = D49A71E11F6974470056336F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E4328148138ABC890047C5CB /* openFrameworksDebug.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -222,7 +356,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n";
+			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -232,15 +366,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				29D734F0DDECC8C5978185D7 /* testApp.cpp in Sources */,
-				9BAEC2935795C61674F508DD /* ofxUVC.mm in Sources */,
-				39119CBB82BF8341392FF5CA /* UVCCameraControl.m in Sources */,
+				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
+				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
+				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
+				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
+				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
+				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
+				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
+				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
+				E50D422DEE3E70C9EEF113C7 /* ofxUVC.mm in Sources */,
+				6CE700E31816FE86BE8554E0 /* UVCCameraControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D49A71E41F69744C0056336F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UVC Test App";
+			targetProxy = D49A71E31F69744C0056336F /* PBXContainerItemProxy */;
+		};
 		E4EEB9AC138B136A00A80321 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = openFrameworks;
@@ -271,11 +418,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../../addons/ofxUVC/src,
-					../../../addons/ofxYAML/libs,
-					../../../addons/ofxYAML/libs/include,
-					../../../addons/ofxYAML/libs/include/contrib,
-					../../../addons/ofxYAML/src,
+					../../../addons/ofxGui/src,
+					../../../addons/ofxUVC2/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
@@ -310,11 +454,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../../addons/ofxUVC/src,
-					../../../addons/ofxYAML/libs,
-					../../../addons/ofxYAML/libs/include,
-					../../../addons/ofxYAML/libs/include/contrib,
-					../../../addons/ofxYAML/src,
+					../../../addons/ofxGui/src,
+					../../../addons/ofxUVC2/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -342,16 +483,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../../addons/ofxUVC/src,
-					../../../addons/ofxYAML/libs,
-					../../../addons/ofxYAML/libs/include,
-					../../../addons/ofxYAML/libs/include/contrib,
-					../../../addons/ofxYAML/src,
+					../../../addons/ofxGui/src,
+					../../../addons/ofxUVC2/src,
 				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = /Applications;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -374,16 +513,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../../addons/ofxUVC/src,
-					../../../addons/ofxYAML/libs,
-					../../../addons/ofxYAML/libs/include,
-					../../../addons/ofxYAML/libs/include/contrib,
-					../../../addons/ofxYAML/src,
+					../../../addons/ofxGui/src,
+					../../../addons/ofxUVC2/src,
 				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = /Applications;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

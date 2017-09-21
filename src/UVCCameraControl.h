@@ -8,7 +8,9 @@
 
 //http://phoboslab.org/log/2009/07/uvc-camera-control-for-mac-os-x#comment107
 
-#define USE_C920
+#import <../VVUVCKit/VVUVCKit.h>
+
+#define USE_C920 //or BRIO
 
 
 #define UVC_INPUT_TERMINAL_ID 0x01
@@ -55,8 +57,12 @@ typedef struct {
     uvc_control_info_t incremental_exposure;
     uvc_control_info_t powerLineFrequency;
     uvc_control_info_t backlightCompensation;
+    uvc_control_info_t autoHue;
     uvc_control_info_t hue;
     uvc_control_info_t gamma;
+    uvc_control_info_t zoom;
+    uvc_control_info_t pantilt;
+    uvc_control_info_t roll;
 } uvc_controls_t ;
 
 
@@ -73,13 +79,15 @@ typedef struct {
 - (IOUSBInterfaceInterface190 **)getControlInferaceWithDeviceInterface:(IOUSBDeviceInterface **)deviceInterface;
 
 - (BOOL)sendControlRequest:(IOUSBDevRequest)controlRequest;
-- (BOOL)setData:(long)value withLength:(int)length forSelector:(int)selector at:(int)unitID;
+- (BOOL)setData:(int)value withLength:(int)length forSelector:(int)selector at:(int)unitID;
+- (BOOL)setData2:(void*)value withLength:(int)length forSelector:(int)selector at:(int)unitID;
 - (long)getDataFor:(int)type withLength:(int)length fromSelector:(int)selector at:(int)unitID;
 
 - (uvc_range_t)getRangeForControl:(const uvc_control_info_t *)control;
 - (float)mapValue:(float)value fromMin:(float)fromMin max:(float)fromMax toMin:(float)toMin max:(float)toMax;
 - (float)getValueForControl:(const uvc_control_info_t *)control;
 - (BOOL)setValue:(float)value forControl:(const uvc_control_info_t *)control;
+- (BOOL)setValue2:(float*)value forControl:(const uvc_control_info_t *)control;
 
 - (void) incrementExposure;
 - (void) decrementExposure;
@@ -118,8 +126,21 @@ typedef struct {
 - (float)getPowerLineFrequency;
 - (BOOL)setBacklightCompensation:(float)value;
 - (float)getBacklightCompensation;
+
+- (BOOL)setAutoHue:(BOOL)enabled;
+- (BOOL)getAutoHue;
 - (BOOL)setHue:(float)value;
 - (float)getHue;
+
 - (BOOL)setGamma:(float)value;
 - (float)getGamma;
+
+- (BOOL)setZoom:(float)value;
+- (float)getZoom;
+//- (BOOL)setPantilt:(float)value;
+//- (BOOL)setPanTilt:(BOOL)reset withPan:(float)pan withTilt:(float)tilt;
+- (BOOL)setPantilt:(float*)value;
+- (float)getPantilt;
+- (BOOL)setRoll:(float)value;
+- (float)getRoll;
 @end
