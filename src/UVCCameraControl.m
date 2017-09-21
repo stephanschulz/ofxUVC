@@ -311,11 +311,11 @@ const uvc_controls_t uvc_controls = {
 	controlRequest.pData = &value;
 	BOOL success = [self sendControlRequest:controlRequest];
     
-    printf("getDataFor %lu \n",value);
-    printf("length %i \n",length);
+//    printf("getDataFor %lu \n",value);
+//    printf("length %i \n",length);
 
     short int signed_value = *(short int*)&value;
-    printf("signed_value %i \n",signed_value);
+//    printf("signed_value %i \n",signed_value);
     
 	return ( success ? signed_value : 0 );
 }

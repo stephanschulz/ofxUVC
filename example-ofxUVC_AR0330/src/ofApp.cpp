@@ -25,6 +25,7 @@
  
  */
 
+//for logitech c920 set #define USE_C920 in UVCCameraControl.h
 //--------------------------------------------------------------
 void ofApp::setup(){
     
@@ -36,7 +37,7 @@ void ofApp::setup(){
     
     collectCameraInfo();
     
-      int camID = 1;
+      int camID = 0;
     camWidth = 1920; //640;
     camHeight = 1080;//480;
     
@@ -80,7 +81,8 @@ void ofApp::update(){
 void ofApp::draw(){
 
 //    vidSource.draw(0, 0);
-    tex.draw(0,0, ofGetWidth(), ofGetHeight());
+//    tex.draw(0,0, ofGetWidth(), ofGetHeight());
+    tex.draw(0,0, camWidth/1.3, camHeight/1.3);
     
     if(bShowGUI){
         gui_UVCcontroller.draw();

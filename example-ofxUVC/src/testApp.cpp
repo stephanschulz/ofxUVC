@@ -8,37 +8,47 @@ void testApp::setup(){
     int cameraToUse;
     //yaml.doc["cameraToUse"] >> cameraToUse;
     
+    //[notice ] productID 0 = 082d
+    //[notice ] vendorID 0 = 046d
+    
     // CHECK bin/data/camera_settings.yaml for some proper values
-    int vendorId = 0x46d, productId = 0x821, interfaceNum = 0x2;
-    cameraName = "Logitech Camera #2";
-    camWidth = 640;
-    camHeight = 360;
+//    int vendorId = 0x46d, productId = 0x821, interfaceNum = 0x2;
+    int vendorId = 0x46d, productId = 0x82d, interfaceNum = 0x2;
+
+    unsigned int locationID = 0x14100000;
+    cameraName = "HD Pro Webcam C920 #8";
+    camWidth = 1920;
+    camHeight = 1080;
     //yaml.doc["cameras"][cameraToUse]["vendorId"] >> vendorId;
     //yaml.doc["cameras"][cameraToUse]["productId"] >> productId;
     //yaml.doc["cameras"][cameraToUse]["interfaceNum"] >> interfaceNum;
     //yaml.doc["cameras"][cameraToUse]["name"] >> cameraName;
     //yaml.doc["cameras"][cameraToUse]["width"] >> camWidth;
     //yaml.doc["cameras"][cameraToUse]["height"] >> camHeight;
-    
-    vidGrabber.setup(camWidth, camHeight);
+  
     
     int deviceId = 0;
     vector<string> availableCams = vidGrabber.listVideoDevices();
 
     for(int i = 0; i < availableCams.size(); i++){
+        ofLog()<<i<<" availableCams.at(i) "<<availableCams.at(i);
         if(availableCams.at(i) == cameraName){
             deviceId = i;
         }
     }
     
     vidGrabber.setDeviceID(deviceId);
-       
+    
+    vidGrabber.setup(camWidth, camHeight);
+
     focus = 0.1;
     
-    uvcControl.useCamera(vendorId, productId, interfaceNum); 
-    uvcControl.setAutoExposure(true);
+     uvcControl.useCamera2(vendorId, productId, interfaceNum,(int) locationID);
+//    uvcControl.useCamera(vendorId, productId, interfaceNum); 
+//    uvcControl.setAutoExposure(true);
     controls = uvcControl.getCameraControls();
     
+    ofLog()<<"setup done";
 }
 
 //--------------------------------------------------------------
