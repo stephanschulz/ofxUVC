@@ -332,13 +332,14 @@ https://github.com/kazu/UVCCameraControl
 
 - (BOOL)setData2:(void*)value withLength:(int)length forSelector:(int)selector at:(int)unitId
 {
+    
 //    value[0] = int(100);
 //    value[1] = int(100);
 //     NSLog(@"setData2 pan %lu tilt %lu",value[0],value[1]);
     
 //    printf("setData2 value0 %d \n",value[0]);
 //    printf("setData2 value1 %d \n",value[1]);
-//    int p = 150;
+    int p = 90*3600;
 //    int t = 400;
 //    
 //    int vv = p << 16;
@@ -373,6 +374,8 @@ https://github.com/kazu/UVCCameraControl
 //    printf("control->size %i \n",size);
     printf("setData2->selector %i \n",selector);
     printf("setData2->unit %i \n",unitId);
+    printf("setData2->length %i \n",length);
+  
     
     IOUSBDevRequest controlRequest;
     controlRequest.bmRequestType = USBmakebmRequestType( kUSBOut, kUSBClass, kUSBInterface );
@@ -730,23 +733,32 @@ https://github.com/kazu/UVCCameraControl
     printf("zoom value %f \n",value);
 //    return [self setValue:value forControl:&uvc_controls.zoom];
     
+    /*
     int			valToSend = 0x0000;
-    
-    //    valToSend = (int)labs(param->val);
-    //    //NSLog(@"\t\tabs val is %d",valToSend);
-    //    if (param->val < 0)
-    //        valToSend = (~valToSend + 1);
-    
     valToSend = 100 + value*400 ;
-//    NSLog(@"\t\tabs val is %d",valToSend);
     int paramSize = 8;
     void			*bytesToSend = malloc(paramSize);
     bzero(bytesToSend,paramSize);
     memcpy(bytesToSend,&valToSend,paramSize);
     
-    
-    
     [self setData2:bytesToSend
+        withLength:uvc_controls.zoom.size
+       forSelector:uvc_controls.zoom.selector
+                at:uvc_controls.zoom.unit];
+    */
+    
+    int zoomValue = value * 400;
+    uint8_t data[2];
+    SHORT_TO_SW(zoomValue, data + 0);
+    for(int i=0; i<2; i++){
+        //      printf("setPantilt data %d %d \n",i,data[i]);
+        printf("%d , ",data[i]);
+    }
+    printf("\n");
+
+    
+    
+    [self setData2:data //bytesToSend
         withLength:uvc_controls.zoom.size
        forSelector:uvc_controls.zoom.selector
                 at:uvc_controls.zoom.unit];
@@ -789,8 +801,8 @@ https://github.com/kazu/UVCCameraControl
     //https://int80k.com/libuvc/doc/
 //    int pan = (0.5-value[0])*3600;
 //    int tilt = (0.5-value[1])*3600;
-    int pan = (value[0])*3600;
-    int tilt = (value[1])*3600;
+    int pan =  (0.5 - value[0]) * 36000*2; //- 18000;
+    int tilt = (0.5 - value[1]) * 36000*2;// - 18000;
 
     
     printf("INT_TO_DW pan %d \n",pan);
@@ -804,6 +816,29 @@ https://github.com/kazu/UVCCameraControl
          printf("%d , ",data[i]);
     }
     printf("\n");
+    
+    
+    int			valToSend = 0x0000;
+    
+    //    valToSend = (int)labs(param->val);
+    //    //NSLog(@"\t\tabs val is %d",valToSend);
+    //    if (param->val < 0)
+    //        valToSend = (~valToSend + 1);
+    
+    valToSend =  value[0]*36000 ;
+    //    NSLog(@"\t\tabs val is %d",valToSend);
+    int paramSize = 8;
+    void			*bytesToSend = malloc(paramSize);
+    bzero(bytesToSend,paramSize);
+    memcpy(bytesToSend,&valToSend,paramSize);
+    
+    printf("bytesToSend %p",bytesToSend);
+//    for(int i=0; i<8; i++){
+//        //      printf("setPantilt data %d %d \n",i,data[i]);
+//        printf("%d , ",bytesToSend[i]);
+//    }
+//    printf("\n");
+
     
 //     printf("setPantilt data %d \n",data);
 //    printf("setPantilt sizeof %lu \n",sizeof(data));

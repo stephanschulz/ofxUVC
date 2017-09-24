@@ -199,7 +199,7 @@ const uvc_controls_t uvc_controls = {
     .pantilt = {
         .unit = UVC_INPUT_TERMINAL_ID, //CT_PANTILT_ABSOLUTE_CONTROL
         .selector = 0x0D,
-        .size = 4,
+        .size = 8,
         .name = @"pantilt",
     },
     .roll = {

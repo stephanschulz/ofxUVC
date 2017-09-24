@@ -37,7 +37,7 @@ void ofApp::setup(){
     
     collectCameraInfo();
     
-      int camID = 0;
+      int camID = 1;
     camWidth = 1920; //640;
     camHeight = 1080;//480;
     
