@@ -1,5 +1,7 @@
 ## ofxUVC
 
+*NOTE: the version in the development branch works with OF 0.10 and does not need QTKIT*
+
 An addon for controlling UVC (USB Universal Video Class) cameras. This lets you control things like the autoexposure and autofocus settings for your camera
 
 Implementation is experimental. Only works on OS X for now, though is architected for cross-platform support (pull requests, welcome!).
