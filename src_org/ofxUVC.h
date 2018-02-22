@@ -51,6 +51,7 @@ class ofxUVC {
     void setWhiteBalance(float value);
     float getWhiteBalance();
     
+    
     void setGain(float value);
     float getGain();
     void setBrightness(float value);
@@ -67,25 +68,10 @@ class ofxUVC {
     float getPowerLineFrequency();
     void setBacklightCompensation(float value);
     float getBacklightCompensation();
-    
-    void setAutoHue(bool enabled);
-    bool getAutoHue();
     void setHue(float value);
     float getHue();
-    
     void setGamma(float value);
     float getGamma();
-    
-    
-    void setZoom(float value);
-    float getZoom();
-//    void setPantilt(float pan, float tilt);
-    void setPantilt(float* value);
-    float getPantilt();
-    void setRoll(float value);
-    float getRoll();
-    
-    void printDefaults();
     
     vector<ofxUVCControl> getCameraControls();
     

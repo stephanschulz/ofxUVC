@@ -5,11 +5,11 @@
 
 
 #include "ofxGui.h"
-#include "myRateTimer.h"
+
 
 //check inside UVCCameraControl if #define USE_C920 is set
 #include "UVC_controller.h"
-//#include "ofxCameraDeviceTree.h"
+#include "ofxCameraDeviceTree.h"
 
 
 class ofApp : public ofBaseApp{
@@ -30,23 +30,21 @@ class ofApp : public ofBaseApp{
     
     void exit();
     
-       myRateTimer cameraTimer;
-    
-     ofVideoGrabber vidSource;
-//    ofQTKitGrabber vidSource;
+//     ofVideoGrabber vidSource;
+    ofQTKitGrabber vidSource;
      ofTexture tex;
     
     int camWidth, camHeight;
     
     bool bShowGUI;
     
-//    void collectCameraInfo();
+    void collectCameraInfo();
     UVC_controller uvcController;
      ofxPanel gui_UVCcontroller;
     
-//    ofxCameraDeviceTree cameraDeviceManager;
-//    vector<string> allCameraNames;
-//    vector<string> allUniqueIDs;
-//    vector<unsigned int> allLocationIDs;
+    ofxCameraDeviceTree cameraDeviceManager;
+    vector<string> allCameraNames;
+    vector<string> allUniqueIDs;
+    vector<unsigned int> allLocationIDs;
     
 };

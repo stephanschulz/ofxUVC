@@ -131,13 +131,6 @@ float ofxUVC::getBacklightCompensation(){
     return [cameraControl getBacklightCompensation];
 }
 
-void ofxUVC::setAutoHue(bool enabled){
-    [cameraControl setAutoHue:enabled];
-}
-
-bool ofxUVC::getAutoHue(){
-    return [cameraControl getAutoHue];
-}
 float ofxUVC::getHue(){
     return [cameraControl getHue];
 }
@@ -153,36 +146,6 @@ float ofxUVC::getGamma(){
 void ofxUVC::setGamma(float value){
     [cameraControl setGamma:value];
 }
-
-float ofxUVC::getZoom(){
-    return [cameraControl getZoom];
-}
-
-void ofxUVC::setZoom(float value){
-    printf("ofxUVC::setZoom\n");
-    [cameraControl setZoom:value];
-}
-
-float ofxUVC::getPantilt(){
-    return [cameraControl getPantilt];
-}
-
-void ofxUVC::setPantilt(float* value){
-    [cameraControl setPantilt:value];
-}
-
-float ofxUVC::getRoll(){
-    return [cameraControl getRoll];
-}
-
-void ofxUVC::setRoll(float value){
-    [cameraControl setRoll:value];
-}
-
-void ofxUVC::printDefaults(){
-    [cameraControl printDefaults];
-}
-
 
 vector<ofxUVCControl> ofxUVC::getCameraControls(){
     vector<ofxUVCControl> result;
@@ -257,36 +220,17 @@ vector<ofxUVCControl> ofxUVC::getCameraControls(){
     backLightCompensation.status = [cameraControl getInfoForControl:&[cameraControl getControls]->backlightCompensation];
     result.push_back(powerLineFrequency);
     
-    
     ofxUVCControl hue;
     hue.name = "hue";
     hue.status = [cameraControl getInfoForControl:&[cameraControl getControls]->hue];
     result.push_back(hue);
-    ofxUVCControl autoHue;
-    autoHue.name = "autoHue";
-    autoHue.status = [cameraControl getInfoForControl:&[cameraControl getControls]->autoHue];
-    result.push_back(autoHue);
 
-    
     ofxUVCControl gamma;
     gamma.name = "gamma";
     gamma.status = [cameraControl getInfoForControl:&[cameraControl getControls]->gamma];
     result.push_back(gamma);
-
-    ofxUVCControl zoom;
-    zoom.name = "zoom";
-    zoom.status = [cameraControl getInfoForControl:&[cameraControl getControls]->zoom];
-    result.push_back(zoom);
     
-    ofxUVCControl pantilt;
-    pantilt.name = "pantilt";
-    pantilt.status = [cameraControl getInfoForControl:&[cameraControl getControls]->pantilt];
-    result.push_back(pantilt);
-    
-    ofxUVCControl roll;
-    roll.name = "roll";
-    roll.status = [cameraControl getInfoForControl:&[cameraControl getControls]->roll];
-    result.push_back(roll);
+  //  ofxUVCControl incremental_exposure;
 
     return result;
 }
