@@ -42,6 +42,10 @@ Launch USB Prober with your camera plugged in. Click the tab labeled "IORegistry
 
 [James George](http://jamesgeorge.org) (for help hiding Cocoa from C++)
 
+### more Thanks
+The developers involved in this were:
+[Lingdong Huang] (https://github.com/LingDong-)
+[Caroline Record] (https://github.com/crecord)
 ### License
 
 ofxUVC is licensed under an MIT License
