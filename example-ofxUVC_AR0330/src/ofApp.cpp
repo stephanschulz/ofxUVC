@@ -37,7 +37,7 @@ void ofApp::setup(){
     
     collectCameraInfo();
     
-      int camID = 0;
+      int camID = 1;
     camWidth = 1920; //640;
     camHeight = 1080;//480;
     
@@ -51,10 +51,17 @@ void ofApp::setup(){
     ofLog()<<"camID "<<camID<<", allLocationIDs[camID] "<<allLocationIDs[camID];
     uvcController.setup("camera",camID,allLocationIDs[camID]);
     
+ 
     gui_UVCcontroller.setup("UVC");
+//    gui_UVCcontroller.setDefaultWidth(300);
+//    gui_UVCcontroller.setWidthElements(300);
+  gui_UVCcontroller.setName("UVC");
+   
     gui_UVCcontroller.setPosition(10,10);
+      
     gui_UVCcontroller.add(uvcController.parameters);
     gui_UVCcontroller.loadFromFile("gui_UVCcontroller.xml");
+//     gui_UVCcontroller.setWidthElements(100);
 //    gui_UVCcontroller.minimizeAll();
     
     uvcController.initDone = true;
@@ -149,6 +156,7 @@ void ofApp::keyPressed(int key){
 //    
     if(key == 'f'){
         ofToggleFullscreen();
+         gui_UVCcontroller.saveToFile("gui_UVCcontroller.xml");
     }
 //
 //    if(key == '='){

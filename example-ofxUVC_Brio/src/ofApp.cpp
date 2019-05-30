@@ -57,7 +57,7 @@ void ofApp::setup(){
     gui_UVCcontroller.loadFromFile("gui_UVCcontroller.xml");
 //    gui_UVCcontroller.minimizeAll();
     
-    uvcController.initDone = true;
+//    uvcController.initDone = true;
     uvcController.init();
 
    

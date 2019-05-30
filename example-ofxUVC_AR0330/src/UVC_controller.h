@@ -58,6 +58,7 @@ public:
         camID = _camID;
         
         parameters.setName(_name);
+       
         parameters.add(getCamValues.set("getCamValues",false));
         parameters.add(aFocus.set("aFocus",false));
         parameters.add(focusValue.set("focusValue",0.225,0,1.0));
@@ -181,32 +182,55 @@ public:
                 initStage++;
             }
             
-            //all others
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 6){
+            
+            //focus
+            if(ofGetElapsedTimef() - initTimer > waitDuration && initStage == 6){
                 initTimer = ofGetElapsedTimef();
-                old_brightnessValue = -1;
+                aFocus = !aFocus;
+                old_aFocus = !aFocus;
                 changeCamSettings();
                 initStage++;
             }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 7){
+            if(ofGetElapsedTimef() - initTimer > waitDuration && initStage == 7){
                 initTimer = ofGetElapsedTimef();
-                old_contrastValue = -1;
+                aFocus = !aFocus;
+                old_aFocus = !aFocus;
                 changeCamSettings();
                 initStage++;
             }
             if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 8){
                 initTimer = ofGetElapsedTimef();
+                old_focusValue = -1;
+                changeCamSettings();
+                initStage++;
+            }
+            
+            //all others
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 9){
+                initTimer = ofGetElapsedTimef();
+                old_brightnessValue = -1;
+                changeCamSettings();
+                initStage++;
+            }
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 10){
+                initTimer = ofGetElapsedTimef();
+                old_contrastValue = -1;
+                changeCamSettings();
+                initStage++;
+            }
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 11){
+                initTimer = ofGetElapsedTimef();
                 old_saturationValue = -1;
                 changeCamSettings();
                 initStage++;
             }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 9){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 12){
                 initTimer = ofGetElapsedTimef();
                 old_sharpValue = -1;
                 changeCamSettings();
                 initStage++;
             }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 10){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 13){
                 initTimer = ofGetElapsedTimef();
                 old_gainValue = -1;
                 changeCamSettings();
@@ -227,7 +251,7 @@ public:
 //                changeCamSettings();
 //                initStage++;
 //            }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 11){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 14){
                 initTimer = ofGetElapsedTimef();
                 old_exposureValue = -1;
                 changeCamSettings();
@@ -236,7 +260,7 @@ public:
             
             
             //done
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 12){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 15){
                 initTimer = ofGetElapsedTimef();
                 initDone = true;
                 initStage++;

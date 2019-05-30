@@ -1,0 +1,21 @@
+<UVC>
+	<camera>
+		<getCamValues>0</getCamValues>
+		<aFocus>0</aFocus>
+		<focusValue>0.225</focusValue>
+		<aExposure>0</aExposure>
+		<exposureValue>0.935</exposureValue>
+		<aWhiteBalance>0</aWhiteBalance>
+		<whiteBalanceValue>0.845</whiteBalanceValue>
+		<brightnessValue>0.5</brightnessValue>
+		<contrastValue>0.12</contrastValue>
+		<saturationValue>0.245</saturationValue>
+		<sharpValue>0.61</sharpValue>
+		<gainValue>0.06</gainValue>
+		<powerFreq>0</powerFreq>
+		<backLight>0</backLight>
+		<hue>0</hue>
+		<gamma>0</gamma>
+	</camera>
+<UVC/>
+</UVC>
