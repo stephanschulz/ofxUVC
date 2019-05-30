@@ -8,6 +8,12 @@ Implementation is experimental. Only works on OS X for now, though is architecte
 
 There is a good thread on UVC control on the OF forum: [here](http://forum.openframeworks.cc/index.php/topic,3917.0.html). And an excellent post on the topic by Dominic Szablewski (from which the first draft of the Objective-C code here derives) [here](http://www.phoboslab.org/log/2009/07/uvc-camera-control-for-mac-os-x).
 
+### New Feature: Automatically detect camera vendor/product ID on macOS
+- Users no longer need to supply ofxUVC with their camera's ID's, our code now queries the OS to retrieve the info automatically.
+- Simply put `#include "ofxUVCProber.h"` before `#include "ofxUVC.h"`
+- Then (for example) use `.useCameraByDeviceIndex(i)` instead of old `.useCamera(vendorID, productID, interfaceNum)`
+- See `example-auto/` for details and more usage.
+
 ### Known Supported Cameras
 
 * Microsoft LifeCam HD-3000
@@ -19,11 +25,6 @@ There is a good thread on UVC control on the OF forum: [here](http://forum.openf
 * Rosewill
 
 * Logitech c6260
-
-* Logitech C920 (need to use #define USE_C920 in UVCCameraControl.h)
-
-* [Aptina 292A-IPC-AR0330] (http://www.kurokesu.com/shop/cameras/CAMUSB1)
-
 
 ### UVC Test App
 

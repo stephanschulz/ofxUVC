@@ -1,3 +1,0 @@
-ofxCameraDeviceTree
-ofxGui
-ofxUVC

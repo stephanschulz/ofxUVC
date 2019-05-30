@@ -35,7 +35,7 @@ class ofxUVC {
 
     void useCamera(int vendorId, int productId, int interfaceNum);
     void useCamera2(int vendorId, int productId, int _interfaceNum,int _locationID);
-    
+
     void setAutoExposure(bool enable);
     bool getAutoExposure();
     void setExposure(float value);
@@ -51,6 +51,7 @@ class ofxUVC {
     void setWhiteBalance(float value);
     float getWhiteBalance();
     
+    
     void setGain(float value);
     float getGain();
     void setBrightness(float value);
@@ -62,32 +63,9 @@ class ofxUVC {
     void setSharpness(float value);
     float getSharpness();
 
-    //-----newly added
-    void setPowerLineFrequency(float value);
-    float getPowerLineFrequency();
-    void setBacklightCompensation(float value);
-    float getBacklightCompensation();
-    
-    void setAutoHue(bool enabled);
-    bool getAutoHue();
-    void setHue(float value);
-    float getHue();
-    
-    void setGamma(float value);
-    float getGamma();
-    
-    
-    void setZoom(float value);
-    float getZoom();
-//    void setPantilt(float pan, float tilt);
-    void setPantilt(float* value);
-    float getPantilt();
-    void setRoll(float value);
-    float getRoll();
-    
-    void printDefaults();
-    
     vector<ofxUVCControl> getCameraControls();
+    
+#include "ofxUVCUseProber.h"
     
   protected:
     
