@@ -44,7 +44,9 @@ Launch USB Prober with your camera plugged in. Click the tab labeled "IORegistry
 
 ### more Thanks
 The developers involved in this were:
+
 [Lingdong Huang] (https://github.com/LingDong-)
+
 [Caroline Record] (https://github.com/crecord)
 ### License
 
