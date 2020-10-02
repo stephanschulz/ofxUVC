@@ -34,7 +34,7 @@ class ofxUVC {
     ~ofxUVC();
 
     void useCamera(int vendorId, int productId, int interfaceNum);
-    void useCamera2(int vendorId, int productId, int _interfaceNum,int _locationID);
+    void useCamera2(int vendorId, int productId, int _interfaceNum,unsigned int _locationID);
 
     void setAutoExposure(bool enable);
     bool getAutoExposure();

@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxUVCProber.h" // <- To use the prober, you need include this header BEFORE including "ofxUVC.h"!
-#include "ofxUVC.h"
+#include "ofxGui.h"
+#include "UVC_controller.h"
+
 
 class ofApp : public ofBaseApp{
 	public:
@@ -22,12 +23,12 @@ class ofApp : public ofBaseApp{
     
     void exit();
     
+    int camID;
+    int camWidth, camHeight;
     ofVideoGrabber	vidGrabber;
 
-    ofxUVC uvcControl;
+    ofxPanel gui_UVCcontroller;
+     UVC_controller uvcController;
     
-    int camWidth = 1280;
-    int camHeight = 720;
-
-    vector<ofxUVCControl> controls;
+    bool bShowGUI;
 };

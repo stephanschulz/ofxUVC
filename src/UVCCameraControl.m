@@ -205,7 +205,11 @@ const uvc_controls_t uvc_controls = {
 
 
 - (id)initWithLocationID:(UInt32)locationID {
-	if( self = [super init] ) {
+    
+    NSLog(@"initWithLocationID %s ... %d, %X",__func__,(unsigned int)locationID,(unsigned int)locationID);
+    
+    self = [super init];
+	if( self!=nil ) {
 		interface = NULL;
 		
 		// Find All USB Devices, get their locationId and check if it matches the requested one
@@ -238,8 +242,22 @@ const uvc_controls_t uvc_controls = {
 			if( currentLocationID == locationID ) {
                 NSLog( @" Yep, this is the USB Device that was requested! %d.\n", (int)currentLocationID);
 				interface = [self getControlInferaceWithDeviceInterface:deviceInterface];
+                
+                //	clean up the plugin interface
+                if (plugInInterface!=NULL)	{
+                    IODestroyPlugInInterface(plugInInterface);
+                    plugInInterface = NULL;
+                }
+
+                
 				return self;
 			}
+            
+            //	clean up the plugin interface
+            if (plugInInterface!=NULL)	{
+                IODestroyPlugInInterface(plugInInterface);
+                plugInInterface = NULL;
+            }
 		} // end while
 		
 	}
@@ -291,10 +309,10 @@ const uvc_controls_t uvc_controls = {
 
 
 - (IOUSBInterfaceInterface190 **)getControlInferaceWithDeviceInterface:(IOUSBDeviceInterface **)deviceInterface {
-	IOUSBInterfaceInterface190 **controlInterface;
 	
 	io_iterator_t interfaceIterator;
 	IOUSBFindInterfaceRequest interfaceRequest;
+    
 	interfaceRequest.bInterfaceClass = UVC_CONTROL_INTERFACE_CLASS;
 	interfaceRequest.bInterfaceSubClass = UVC_CONTROL_INTERFACE_SUBCLASS;
 	interfaceRequest.bInterfaceProtocol = kIOUSBFindInterfaceDontCare;
@@ -311,10 +329,13 @@ const uvc_controls_t uvc_controls = {
 	
 	if( (usbInterface = IOIteratorNext(interfaceIterator)) ) {
 		IOCFPlugInInterface **plugInInterface = NULL;
-		
+        IOUSBInterfaceInterface190 **controlInterface;
+        
 		//Create an intermediate plug-in
 		SInt32 score;
-		kern_return_t kr = IOCreatePlugInInterfaceForService( usbInterface, kIOUSBInterfaceUserClientTypeID, kIOCFPlugInInterfaceID, &plugInInterface, &score );
+        kern_return_t kr;
+        
+        kr = IOCreatePlugInInterfaceForService( usbInterface, kIOUSBInterfaceUserClientTypeID, kIOCFPlugInInterfaceID, &plugInInterface, &score );
 		
 		//Release the usbInterface object after getting the plug-in
 		kr = IOObjectRelease(usbInterface);
@@ -358,22 +379,37 @@ const uvc_controls_t uvc_controls = {
 	
 	//Now open the interface. This will cause the pipes associated with
 	//the endpoints in the interface descriptor to be instantiated
+    bool successful1 = true;
 	kern_return_t kr = (*interface)->USBInterfaceOpen(interface);
 	if (kr != kIOReturnSuccess)	{
-		NSLog( @"CameraControl Error: Unable to open interface (%08x)\n", kr );
-		return NO;
-	}
-	
-	kr = (*interface)->ControlRequest( interface, 0, &controlRequest );
-	if( kr != kIOReturnSuccess ) {
-		kr = (*interface)->USBInterfaceClose(interface);
-		//NSLog( @"CameraControl Error: Control request failed: %08x", kr );
-		return NO;
-	}
-	
-	kr = (*interface)->USBInterfaceClose(interface);
-	
-	return YES;
+        //		NSLog( @"CameraControl Error: Unable to open interface (%08x)\n", kr );
+        //		return NO;
+        successful1 = false;
+    }
+    
+    bool successful2 = true;
+    kern_return_t kr2 = (*interface)->ControlRequest( interface, 0, &controlRequest );
+    if( kr2 != kIOReturnSuccess ) {
+        kr2 = (*interface)->USBInterfaceClose(interface);
+        //		NSLog( @"CameraControl Error: Control request failed: %08x", kr );
+        //		return NO;
+        successful2 = false;
+    }
+    
+    if(successful1 == true || successful2 == true){
+        kr = (*interface)->USBInterfaceClose(interface);
+        
+        return YES;
+    }
+    else{
+        if (successful1 == false) {
+            NSLog( @"CameraControl Error: Unable to open interface (%08x)\n", kr );
+        }
+        if (successful2 == false) {
+            NSLog( @"CameraControl Error: Control request failed (%08x)\n", kr );
+        }
+        return NO;
+    }
 }
 
 

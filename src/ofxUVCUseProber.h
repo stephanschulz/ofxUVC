@@ -9,7 +9,8 @@ void useCameraByDeviceIndex(int i){
     
     ofLog()<<"index "<<i<<", vendorID "<<vendorID<<" productID "<<productID<<" locationID "<<locationID;
 //    useCamera(vendorID,productID,0x00);
-    useCamera2(vendorID,productID,0x00,(int)locationID);
+//    useCamera2(vendorID,productID,0x00,(int)locationID);
+      useCamera2(vendorID,productID,0x00,locationID);
 }
 void useFirstCamera(){
     useCameraByDeviceIndex(0);

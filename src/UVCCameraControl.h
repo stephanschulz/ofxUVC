@@ -16,8 +16,16 @@
 #define UVC_PROCESSING_UNIT_ID 0x02
 #endif
 
-#define UVC_CONTROL_INTERFACE_CLASS 14
-#define UVC_CONTROL_INTERFACE_SUBCLASS 1
+/*
+//from VVUCkit
+processingUnitID = 2;	//	logitech C910
+//processingUnitID = 4;	//	works for microsoft lifecam!
+//processingUnitID = 3;	//	works for "FaceTime HD Camera" on gen-8 macbook pros!
+*/
+
+
+#define UVC_CONTROL_INTERFACE_CLASS 0x0E // 14
+#define UVC_CONTROL_INTERFACE_SUBCLASS 0x01 //1
 
 #define UVC_SET_CUR	0x01
 #define UVC_GET_CUR	0x81

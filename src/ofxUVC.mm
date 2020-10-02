@@ -10,10 +10,17 @@ void ofxUVC::useCamera(int vendorId, int productId, int _interfaceNum){
     cameraInited = true;
 }
 
-void ofxUVC::useCamera2(int vendorId, int productId, int _interfaceNum,int _locationID){
+void ofxUVC::useCamera2(int vendorId, int productId, int _interfaceNum, unsigned int _locationID){
     //  cameraControl = [[UVCCameraControl alloc] initWithVendorID:vendorId productID:productId interfaceNum:_interfaceNum];
+   NSLog(@"useCamera2()");
+    
     cameraControl = [[UVCCameraControl alloc] initWithLocationID:_locationID]; //] VendorID:vendorId productID:productId interfaceNum:_interfaceNum];
     
+    if (cameraControl==nil){
+        NSLog(@"\t\tERR: couldn't create VVUVCController, %s",__func__);
+    }else{
+        NSLog(@"\t\tcreate VVUVCController, %s",__func__);
+    }
     cameraInited = true;
 }
 
