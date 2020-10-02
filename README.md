@@ -7,6 +7,7 @@ Implementation is experimental. Only works on OS X for now, though is architecte
 *NOTE: On the Mac, [ofxQTKitVideoGrabber](https://github.com/Flightphase/ofxQTKitVideoGrabber) is required in placed of the standard ofVideoGrabber, which interferes with UVC control.*
 
 There is a good thread on UVC control on the OF forum: [here](http://forum.openframeworks.cc/index.php/topic,3917.0.html). And an excellent post on the topic by Dominic Szablewski (from which the first draft of the Objective-C code here derives) [here](http://www.phoboslab.org/log/2009/07/uvc-camera-control-for-mac-os-x).
+I also learned a lot from [VVUVCKit](https://github.com/mrRay/VVUVCKit/tree/master/VVUVCKit).
 
 ### New Feature: Automatically detect camera vendor/product ID on macOS
 - Users no longer need to supply ofxUVC with their camera's ID's, our code now queries the OS to retrieve the info automatically.
@@ -18,13 +19,16 @@ There is a good thread on UVC control on the OF forum: [here](http://forum.openf
 
 * Microsoft LifeCam HD-3000
 
+* Logitech c6260
 * Logitech C910
+* Logitech C920
+* Logitech BRIO
 
 * Encore Electronics ENUCM-013
 
 * Rosewill
 
-* Logitech c6260
+
 
 ### UVC Test App
 
