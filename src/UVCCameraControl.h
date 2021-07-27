@@ -1,3 +1,5 @@
+//https://www.usb.org/document-library/video-class-v15-document-set
+
 #import <Foundation/Foundation.h>
 #include <CoreFoundation/CoreFoundation.h>
 
@@ -6,12 +8,26 @@
 #include <IOKit/IOCFPlugIn.h>
 #include <IOKit/usb/IOUSBLib.h>
 
+//#define USE_C920 //or BRIO
 
 #define UVC_INPUT_TERMINAL_ID 0x01
-#define UVC_PROCESSING_UNIT_ID 0x02
 
-#define UVC_CONTROL_INTERFACE_CLASS 14
-#define UVC_CONTROL_INTERFACE_SUBCLASS 1
+#ifdef USE_C920
+#define UVC_PROCESSING_UNIT_ID 0x03 //changed this to work with c920, might not work with others
+#else
+#define UVC_PROCESSING_UNIT_ID 0x02
+#endif
+
+/*
+//from VVUCkit
+processingUnitID = 2;	//	logitech C910
+//processingUnitID = 4;	//	works for microsoft lifecam!
+//processingUnitID = 3;	//	works for "FaceTime HD Camera" on gen-8 macbook pros!
+*/
+
+
+#define UVC_CONTROL_INTERFACE_CLASS 0x0E // 14
+#define UVC_CONTROL_INTERFACE_SUBCLASS 0x01 //1
 
 #define UVC_SET_CUR	0x01
 #define UVC_GET_CUR	0x81
@@ -27,8 +43,10 @@ typedef struct {
 	int unit;
 	int selector;
 	int size;
+    NSString *name;
 } uvc_control_info_t;
 
+/*
 typedef struct {
 	uvc_control_info_t autoExposure;
 	uvc_control_info_t exposure;
@@ -43,6 +61,32 @@ typedef struct {
 	uvc_control_info_t whiteBalance;
 	uvc_control_info_t autoWhiteBalance;
     uvc_control_info_t incremental_exposure;
+ 
+} uvc_controls_t ;
+*/
+typedef struct {
+    uvc_control_info_t autoExposure;
+    uvc_control_info_t exposure;
+    uvc_control_info_t absoluteFocus;
+    uvc_control_info_t autoFocus;
+    uvc_control_info_t focus;
+    uvc_control_info_t brightness;
+    uvc_control_info_t contrast;
+    uvc_control_info_t gain;
+    uvc_control_info_t saturation;
+    uvc_control_info_t sharpness;
+    uvc_control_info_t whiteBalance;
+    uvc_control_info_t autoWhiteBalance;
+    uvc_control_info_t incremental_exposure;
+    uvc_control_info_t powerLineFrequency;
+    uvc_control_info_t backlightCompensation;
+    uvc_control_info_t autoHue;
+    uvc_control_info_t hue;
+    uvc_control_info_t gamma;
+    uvc_control_info_t zoom;
+    uvc_control_info_t pantilt;
+    uvc_control_info_t roll;
+    uvc_control_info_t led;
 } uvc_controls_t ;
 
 
@@ -101,6 +145,7 @@ typedef struct {
 - (BOOL)setSharpness:(float)value;
 - (float)getSharpness;
 
-
+- (BOOL)setLED:(BOOL)enabled;
+- (BOOL)getLED;
 
 @end

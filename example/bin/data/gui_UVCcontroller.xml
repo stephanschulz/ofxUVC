@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<UVC>
+	<camera>
+		<getCamValues>0</getCamValues>
+		<printDefaults>0</printDefaults>
+		<getFocus>0</getFocus>
+		<aFocus>0</aFocus>
+		<focusValue>0.704082</focusValue>
+		<getExposure>0</getExposure>
+		<aExposure>0</aExposure>
+		<exposureValue>0.505102</exposureValue>
+		<aWhiteBalance>0</aWhiteBalance>
+		<whiteBalanceValue>0.845</whiteBalanceValue>
+		<getWhiteBalance>0</getWhiteBalance>
+		<brightnessValue>0.556122</brightnessValue>
+		<contrastValue>0.52551</contrastValue>
+		<saturationValue>0.382653</saturationValue>
+		<sharpValue>0.576531</sharpValue>
+		<gainValue>0</gainValue>
+		<powerFreq>0</powerFreq>
+		<backLight>0</backLight>
+		<zoom>0</zoom>
+		<pan>0</pan>
+		<tilt>0</tilt>
+		<roll>0</roll>
+		<initDone>true</initDone>
+		<aLed>0</aLed>
+	</camera>
+</UVC>

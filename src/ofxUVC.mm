@@ -10,6 +10,20 @@ void ofxUVC::useCamera(int vendorId, int productId, int _interfaceNum){
     cameraInited = true;
 }
 
+void ofxUVC::useCamera2(int vendorId, int productId, int _interfaceNum, unsigned int _locationID){
+    //  cameraControl = [[UVCCameraControl alloc] initWithVendorID:vendorId productID:productId interfaceNum:_interfaceNum];
+   NSLog(@"useCamera2()");
+    
+    cameraControl = [[UVCCameraControl alloc] initWithLocationID:_locationID]; //] VendorID:vendorId productID:productId interfaceNum:_interfaceNum];
+    
+    if (cameraControl==nil){
+        NSLog(@"\t\tERR: couldn't create VVUVCController, %s",__func__);
+    }else{
+        NSLog(@"\t\tcreate VVUVCController, %s",__func__);
+    }
+    cameraInited = true;
+}
+
 ofxUVC::~ofxUVC(){
     if(cameraInited){
         [cameraControl release];
@@ -108,6 +122,18 @@ float ofxUVC::getSharpness(){
     return [cameraControl getSharpness];
 }
 
+void ofxUVC::setLed(bool enable){
+    if(enable){
+        [cameraControl setLed:YES];
+    } else {
+        [cameraControl setLed:NO];
+    }
+//    [cameraControl setLed:enable];
+}
+
+bool ofxUVC::getLed(){
+    return [cameraControl getLed];
+}
 
 vector<ofxUVCControl> ofxUVC::getCameraControls(){
     vector<ofxUVCControl> result;
@@ -171,6 +197,11 @@ vector<ofxUVCControl> ofxUVC::getCameraControls(){
     autoWhiteBalance.name = "autoWhiteBalance";
     autoWhiteBalance.status = [cameraControl getInfoForControl:&[cameraControl getControls]->autoWhiteBalance];
     result.push_back(autoWhiteBalance);
+    
+    ofxUVCControl led;
+    led.name = "led";
+    led.status = [cameraControl getInfoForControl:&[cameraControl getControls]->led];
+    result.push_back(led);
     
   //  ofxUVCControl incremental_exposure;
 

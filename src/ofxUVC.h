@@ -34,7 +34,8 @@ class ofxUVC {
     ~ofxUVC();
 
     void useCamera(int vendorId, int productId, int interfaceNum);
-    
+    void useCamera2(int vendorId, int productId, int _interfaceNum,unsigned int _locationID);
+
     void setAutoExposure(bool enable);
     bool getAutoExposure();
     void setExposure(float value);
@@ -62,9 +63,12 @@ class ofxUVC {
     void setSharpness(float value);
     float getSharpness();
 
-    
+    void setLed(bool enable);
+    bool getLed();
     
     vector<ofxUVCControl> getCameraControls();
+    
+#include "ofxUVCUseProber.h"
     
   protected:
     
