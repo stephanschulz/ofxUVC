@@ -132,6 +132,7 @@ namespace ofxUVCProber{
                 return make_tuple(std::get<1>(cams[i]),std::get<2>(cams[i]));
             }
         }
+        return make_tuple(0,0);
     }
     
   

@@ -123,16 +123,17 @@ float ofxUVC::getSharpness(){
 }
 
 void ofxUVC::setLed(bool enable){
-    if(enable){
-        [cameraControl setLed:YES];
-    } else {
-        [cameraControl setLed:NO];
-    }
+//    if(enable){
+//        [cameraControl setLed:YES];
+//    } else {
+//        [cameraControl setLed:NO];
+//    }
 //    [cameraControl setLed:enable];
 }
 
 bool ofxUVC::getLed(){
-    return [cameraControl getLed];
+//    return [cameraControl getLed];
+    return false;
 }
 
 vector<ofxUVCControl> ofxUVC::getCameraControls(){
