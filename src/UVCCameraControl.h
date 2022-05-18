@@ -20,46 +20,46 @@
 
 /*
 //from VVUCkit
-processingUnitID = 2;	//	logitech C910
-//processingUnitID = 4;	//	works for microsoft lifecam!
-//processingUnitID = 3;	//	works for "FaceTime HD Camera" on gen-8 macbook pros!
+processingUnitID = 2;    //    logitech C910
+//processingUnitID = 4;    //    works for microsoft lifecam!
+//processingUnitID = 3;    //    works for "FaceTime HD Camera" on gen-8 macbook pros!
 */
 
 
 #define UVC_CONTROL_INTERFACE_CLASS 0x0E // 14
 #define UVC_CONTROL_INTERFACE_SUBCLASS 0x01 //1
 
-#define UVC_SET_CUR	0x01
-#define UVC_GET_CUR	0x81
-#define UVC_GET_MIN	0x82
-#define UVC_GET_MAX	0x83
+#define UVC_SET_CUR    0x01
+#define UVC_GET_CUR    0x81
+#define UVC_GET_MIN    0x82
+#define UVC_GET_MAX    0x83
 #define UVC_GET_INFO 0x86
 
 typedef struct {
-	int min, max;
+    int min, max;
 } uvc_range_t;
 
 typedef struct {
-	int unit;
-	int selector;
-	int size;
+    int unit;
+    int selector;
+    int size;
     NSString *name;
 } uvc_control_info_t;
 
 /*
 typedef struct {
-	uvc_control_info_t autoExposure;
-	uvc_control_info_t exposure;
-	uvc_control_info_t absoluteFocus;
-	uvc_control_info_t autoFocus;
-	uvc_control_info_t focus;
-	uvc_control_info_t brightness;
-	uvc_control_info_t contrast;
-	uvc_control_info_t gain;
-	uvc_control_info_t saturation;
-	uvc_control_info_t sharpness;
-	uvc_control_info_t whiteBalance;
-	uvc_control_info_t autoWhiteBalance;
+    uvc_control_info_t autoExposure;
+    uvc_control_info_t exposure;
+    uvc_control_info_t absoluteFocus;
+    uvc_control_info_t autoFocus;
+    uvc_control_info_t focus;
+    uvc_control_info_t brightness;
+    uvc_control_info_t contrast;
+    uvc_control_info_t gain;
+    uvc_control_info_t saturation;
+    uvc_control_info_t sharpness;
+    uvc_control_info_t whiteBalance;
+    uvc_control_info_t autoWhiteBalance;
     uvc_control_info_t incremental_exposure;
  
 } uvc_controls_t ;
@@ -91,8 +91,8 @@ typedef struct {
 
 
 @interface UVCCameraControl : NSObject {
-	long dataBuffer;
-	IOUSBInterfaceInterface190 **interface;
+    long dataBuffer;
+    IOUSBInterfaceInterface190 **interface;
     
     long interfaceNum;
 }

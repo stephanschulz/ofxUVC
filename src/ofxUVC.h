@@ -29,7 +29,7 @@ typedef struct {
 
 class ofxUVC {
     
-	public:
+    public:
     ofxUVC();
     ~ofxUVC();
 

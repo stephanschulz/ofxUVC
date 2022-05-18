@@ -7,8 +7,13 @@
 		<aFocus>0</aFocus>
 		<focusValue>0.704082</focusValue>
 		<getExposure>0</getExposure>
+<<<<<<< HEAD
 		<aExposure>1</aExposure>
 		<exposureValue>0.811224</exposureValue>
+=======
+		<aExposure>0</aExposure>
+		<exposureValue>0.505102</exposureValue>
+>>>>>>> 809309ed6d91ee018deab675565f9a73ad629c10
 		<aWhiteBalance>0</aWhiteBalance>
 		<whiteBalanceValue>0.845</whiteBalanceValue>
 		<getWhiteBalance>0</getWhiteBalance>

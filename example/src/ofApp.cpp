@@ -35,8 +35,14 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+<<<<<<< HEAD
     
     vidGrabber.draw(0,0,ofGetWidth(),ofGetWidth()*(camHeight/float(camWidth)));
+=======
+    ofSetColor(255);
+    vidGrabber.draw(0,0,320,240);
+//    vidGrabber.draw(0,0,ofGetWidth(),ofGetWidth()*(camHeight/float(camWidth)));
+>>>>>>> 809309ed6d91ee018deab675565f9a73ad629c10
     
     if(bShowGUI){
         gui_UVCcontroller.draw();

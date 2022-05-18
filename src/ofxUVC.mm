@@ -6,7 +6,7 @@ ofxUVC::ofxUVC(){
 }
 
 void ofxUVC::useCamera(int vendorId, int productId, int _interfaceNum){
-	cameraControl = [[UVCCameraControl alloc] initWithVendorID:vendorId productID:productId interfaceNum:_interfaceNum];
+    cameraControl = [[UVCCameraControl alloc] initWithVendorID:vendorId productID:productId interfaceNum:_interfaceNum];
     cameraInited = true;
 }
 
@@ -148,52 +148,52 @@ vector<ofxUVCControl> ofxUVC::getCameraControls(){
     autoExposure.status = [cameraControl getInfoForControl:&[cameraControl getControls]->autoExposure];
     result.push_back(autoExposure);
     
-	ofxUVCControl exposure;
+    ofxUVCControl exposure;
     exposure.name = "exposure";
     exposure.status = [cameraControl getInfoForControl:&[cameraControl getControls]->exposure];
     result.push_back(exposure);
     
-	ofxUVCControl absoluteFocus;
+    ofxUVCControl absoluteFocus;
     absoluteFocus.name = "absoluteFocus";
     absoluteFocus.status = [cameraControl getInfoForControl:&[cameraControl getControls]->absoluteFocus];
     result.push_back(absoluteFocus);
 
-	ofxUVCControl focus;
+    ofxUVCControl focus;
     focus.name = "focus";
     focus.status = [cameraControl getInfoForControl:&[cameraControl getControls]->focus];
     result.push_back(focus);
     
-	ofxUVCControl brightness;
+    ofxUVCControl brightness;
     brightness.name = "brightness";
     brightness.status = [cameraControl getInfoForControl:&[cameraControl getControls]->brightness];
     result.push_back(brightness);
     
-	ofxUVCControl contrast;
+    ofxUVCControl contrast;
     contrast.name = "contrast";
     contrast.status = [cameraControl getInfoForControl:&[cameraControl getControls]->contrast];
     result.push_back(contrast);
     
-	ofxUVCControl gain;
+    ofxUVCControl gain;
     gain.name = "gain";
     gain.status = [cameraControl getInfoForControl:&[cameraControl getControls]->gain];
     result.push_back(gain);
     
-	ofxUVCControl saturation;
+    ofxUVCControl saturation;
     saturation.name = "saturation";
     saturation.status = [cameraControl getInfoForControl:&[cameraControl getControls]->saturation];
     result.push_back(saturation);
     
-	ofxUVCControl sharpness;
+    ofxUVCControl sharpness;
     sharpness.name = "sharpness";
     sharpness.status = [cameraControl getInfoForControl:&[cameraControl getControls]->sharpness];
     result.push_back(sharpness);
     
-	ofxUVCControl whiteBalance;
+    ofxUVCControl whiteBalance;
     whiteBalance.name = "whiteBalance";
     whiteBalance.status = [cameraControl getInfoForControl:&[cameraControl getControls]->whiteBalance];
     result.push_back(whiteBalance);
     
-	ofxUVCControl autoWhiteBalance;
+    ofxUVCControl autoWhiteBalance;
     autoWhiteBalance.name = "autoWhiteBalance";
     autoWhiteBalance.status = [cameraControl getInfoForControl:&[cameraControl getControls]->autoWhiteBalance];
     result.push_back(autoWhiteBalance);
