@@ -37,6 +37,8 @@ public:
     ofParameter<bool> aExposure,old_aExposure;
     ofParameter<bool> aWhiteBalance, old_aWhiteBalance;
     
+    ofParameter<bool> aLed,old_aLed;
+    
     ofParameter<float> focusValue, old_focusValue;
     ofParameter<float> exposureValue, old_exposureValue;
     ofParameter<float> whiteBalanceValue, old_whiteBalanceValue;
@@ -61,6 +63,7 @@ public:
     
     bool bShowGUI;
     bool initDone;
+    ofParameter<string> initDone_str;
     int initStage;
     float initTimer;
     int camID;
@@ -75,8 +78,12 @@ public:
         //        productId = _productId;
         
         parameters.setName(_name);
+        parameters.add(initDone_str.set("initDone",""));
+        parameters.add(getCamValues.set("getCamValues",false));
         parameters.add(getCamValues.set("getCamValues",false));
         parameters.add(printDefaults.set("printDefaults",false));
+        
+        parameters.add(aLed.set("aLed",false));
         
         parameters.add(getFocusValues.set("getFocus",false));
         parameters.add(aFocus.set("aFocus",false));
@@ -171,6 +178,7 @@ public:
     
     void init(){
         
+        
         //        interfaceNum = 0x00;
         
         //        uvcControl.useCamera2(vendorId, productId, interfaceNum,(int) locationID);
@@ -183,8 +191,8 @@ public:
         controls = uvcControl.getCameraControls();
         
         initStage = 0;
-        initDone = false;
-        //         initDone = true;
+//        initDone = false;
+                 initDone = true;
         initTimer = 0;
         
         old_focusValue = focusValue;
@@ -208,6 +216,7 @@ public:
         old_rollValue = rollValue;
         
         initTimer = ofGetElapsedTimef();
+        initDone_str = initDone ? "true":"false";
     }
     void update(){
         //         ofLog()<<"initDone == "<<initDone;
@@ -265,32 +274,54 @@ public:
                 initStage++;
             }
             
-            //all others
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 6){
+            //focus
+            if(ofGetElapsedTimef() - initTimer > waitDuration && initStage == 6){
                 initTimer = ofGetElapsedTimef();
-                old_brightnessValue = -1;
+                aFocus = !aFocus;
+                old_aFocus = !aFocus;
                 changeCamSettings();
                 initStage++;
             }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 7){
+            if(ofGetElapsedTimef() - initTimer > waitDuration && initStage == 7){
                 initTimer = ofGetElapsedTimef();
-                old_contrastValue = -1;
+                aFocus = !aFocus;
+                old_aFocus = !aFocus;
                 changeCamSettings();
                 initStage++;
             }
             if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 8){
                 initTimer = ofGetElapsedTimef();
+                old_focusValue = -1;
+                changeCamSettings();
+                initStage++;
+            }
+            
+            //all others
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 9){
+                initTimer = ofGetElapsedTimef();
+                old_brightnessValue = -1;
+                changeCamSettings();
+                initStage++;
+            }
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 10){
+                initTimer = ofGetElapsedTimef();
+                old_contrastValue = -1;
+                changeCamSettings();
+                initStage++;
+            }
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 11){
+                initTimer = ofGetElapsedTimef();
                 old_saturationValue = -1;
                 changeCamSettings();
                 initStage++;
             }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 9){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 12){
                 initTimer = ofGetElapsedTimef();
                 old_sharpValue = -1;
                 changeCamSettings();
                 initStage++;
             }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 10){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 13){
                 initTimer = ofGetElapsedTimef();
                 old_gainValue = -1;
                 changeCamSettings();
@@ -311,7 +342,7 @@ public:
             //                changeCamSettings();
             //                initStage++;
             //            }
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 11){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 14){
                 initTimer = ofGetElapsedTimef();
                 old_exposureValue = -1;
                 changeCamSettings();
@@ -320,7 +351,7 @@ public:
             
             
             //done
-            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 12){
+            if(ofGetElapsedTimef() - initTimer > waitDuration  && initStage == 15){
                 initTimer = ofGetElapsedTimef();
                 initDone = true;
                 initStage++;
@@ -328,6 +359,7 @@ public:
                 cout<<camID<<" end UVC setup"<<endl;
             }
             
+            initDone_str = initDone ? "true":"false";
         } else {
             if(bShowGUI == true){
                 changeCamSettings();
@@ -426,6 +458,12 @@ public:
             if(aWhiteBalance)  uvcControl.setAutoWhiteBalance(true); //[cameraControl setAutoWhiteBalance:YES];
             else  uvcControl.setAutoWhiteBalance(false); //[cameraControl setAutoWhiteBalance:NO];
             old_aWhiteBalance = aWhiteBalance;
+        }
+        
+        if(aLed != old_aLed){
+            if(aLed)  uvcControl.setLed(true); //[cameraControl setAutoExposure:YES];
+            else  uvcControl.setLed(false); //[cameraControl setAutoExposure:NO];
+            old_aLed = aLed;
         }
         
     }

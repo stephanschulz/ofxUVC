@@ -1,3 +1,5 @@
+//https://www.usb.org/document-library/video-class-v15-document-set
+
 #import <Foundation/Foundation.h>
 #include <CoreFoundation/CoreFoundation.h>
 
@@ -6,7 +8,7 @@
 #include <IOKit/IOCFPlugIn.h>
 #include <IOKit/usb/IOUSBLib.h>
 
-#define USE_C920 //or BRIO
+//#define USE_C920 //or BRIO
 
 #define UVC_INPUT_TERMINAL_ID 0x01
 
@@ -59,6 +61,7 @@ typedef struct {
 	uvc_control_info_t whiteBalance;
 	uvc_control_info_t autoWhiteBalance;
     uvc_control_info_t incremental_exposure;
+ 
 } uvc_controls_t ;
 */
 typedef struct {
@@ -83,6 +86,7 @@ typedef struct {
     uvc_control_info_t zoom;
     uvc_control_info_t pantilt;
     uvc_control_info_t roll;
+    uvc_control_info_t led;
 } uvc_controls_t ;
 
 
@@ -141,6 +145,7 @@ typedef struct {
 - (BOOL)setSharpness:(float)value;
 - (float)getSharpness;
 
-
+- (BOOL)setLED:(BOOL)enabled;
+- (BOOL)getLED;
 
 @end

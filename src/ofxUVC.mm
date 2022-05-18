@@ -122,6 +122,18 @@ float ofxUVC::getSharpness(){
     return [cameraControl getSharpness];
 }
 
+void ofxUVC::setLed(bool enable){
+    if(enable){
+        [cameraControl setLed:YES];
+    } else {
+        [cameraControl setLed:NO];
+    }
+//    [cameraControl setLed:enable];
+}
+
+bool ofxUVC::getLed(){
+    return [cameraControl getLed];
+}
 
 vector<ofxUVCControl> ofxUVC::getCameraControls(){
     vector<ofxUVCControl> result;
@@ -185,6 +197,11 @@ vector<ofxUVCControl> ofxUVC::getCameraControls(){
     autoWhiteBalance.name = "autoWhiteBalance";
     autoWhiteBalance.status = [cameraControl getInfoForControl:&[cameraControl getControls]->autoWhiteBalance];
     result.push_back(autoWhiteBalance);
+    
+    ofxUVCControl led;
+    led.name = "led";
+    led.status = [cameraControl getInfoForControl:&[cameraControl getControls]->led];
+    result.push_back(led);
     
   //  ofxUVCControl incremental_exposure;
 

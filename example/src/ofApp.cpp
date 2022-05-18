@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    camID = 1;
+    camID = 0;
     vidGrabber.setDeviceID(camID); // or 1, or 2, ...
     
     camWidth = 640;
@@ -22,6 +22,7 @@ void ofApp::setup(){
     //    gui_UVCcontroller.minimizeAll();
     uvcController.init();
     
+
 }
 
 //--------------------------------------------------------------
@@ -44,6 +45,7 @@ void ofApp::draw(){
 }
 
 void ofApp::exit(){
+     
 }
 
 //--------------------------------------------------------------
@@ -53,7 +55,12 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    if(key =='g') bShowGUI = !bShowGUI;
+    if(key =='g'){
+        bShowGUI = !bShowGUI;
+        if(bShowGUI == false){
+            gui_UVCcontroller.saveToFile("gui_UVCcontroller.xml");
+        }
+    }
 }
 
 //--------------------------------------------------------------

@@ -63,6 +63,9 @@ class ofxUVC {
     void setSharpness(float value);
     float getSharpness();
 
+    void setLed(bool enable);
+    bool getLed();
+    
     vector<ofxUVCControl> getCameraControls();
     
 #include "ofxUVCUseProber.h"
