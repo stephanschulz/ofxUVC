@@ -85,5 +85,6 @@ THE SOFTWARE.
 
 
 
-[the openframeworks app](https://raw.githubusercontent.com/antimodular/examples/master/sphere_sphere_intersection/sphereSphere.png)
-[some of the tested USB UVC cameras](https://raw.githubusercontent.com/antimodular/examples/master/sphere_sphere_intersection/sphereSphere.png)
+[the openframeworks app](https://github.com/stephanschulz/ofxUVC/blob/master/images/app.jpg)
+
+[some of the tested USB UVC cameras](https://github.com/stephanschulz/ofxUVC/blob/master/images/cams.jpg)
