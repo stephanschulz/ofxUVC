@@ -85,6 +85,5 @@ THE SOFTWARE.
 
 
 
-[the openframeworks app](https://github.com/stephanschulz/ofxUVC/blob/master/images/app.jpg)
-
-[some of the tested USB UVC cameras](https://github.com/stephanschulz/ofxUVC/blob/master/images/cams.jpg)
+![the openframeworks app](https://github.com/stephanschulz/ofxUVC/blob/master/images/app.jpg)
+![some of the tested USB UVC cameras](https://github.com/stephanschulz/ofxUVC/blob/master/images/cams.jpg)
