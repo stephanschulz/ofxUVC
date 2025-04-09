@@ -1,0 +1,14 @@
+{
+    "video_source": {
+        "Selected_Video_Source": {
+            "FaceTime_HD_Camera___47B4B64B-7067-4B9C-AD2B-AE273A71F4B5": "0",
+            "HD_Pro_Webcam_C920___0x1130000046d08e5": "0",
+            "HD_USB_CAMERA___0x112000032e40317": "0",
+            "Logitech_BRIO___0x200000046d085e": "1",
+            "NDI_Virtual_Camera___9C197C4E-6ECA-4962-ADB3-A592B7A09B26": "0",
+            "OBSBOT_Tiny_Camera___0x11400003564fef0": "0",
+            "OBSBOT_Virtual_Camera___DFCE4674-D8B4-E9C2-D625-339240874FB3": "0",
+            "stephan’s_phone_Camera___33393045-0000-0000-0000-000000000001": "0"
+        }
+    }
+}

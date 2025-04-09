@@ -22,10 +22,11 @@ I also learned a lot from [VVUVCKit](https://github.com/mrRay/VVUVCKit/tree/mast
 * Logitech c6260
 * Logitech C910
 * Logitech C920
-* Logitech BRIO
+* Logitech BRIO 4k
+* OBSBOT Tiny
+* ELP 4K USB Camera
 
 * Encore Electronics ENUCM-013
-
 * Rosewill
 
 
@@ -52,6 +53,10 @@ The developers involved in this were:
 [Lingdong Huang](https://github.com/LingDong-)
 
 [Caroline Record](https://github.com/crecord)
+
+### References
+[Itay Brenner](https://github.com/Itaybre/CameraControllerhttps://github.com/Itaybre/CameraController)
+
 ### License
 
 ofxUVC is licensed under an MIT License
@@ -77,3 +82,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+
+[the openframeworks app](https://raw.githubusercontent.com/antimodular/examples/master/sphere_sphere_intersection/sphereSphere.png)
+[some of the tested USB UVC cameras](https://raw.githubusercontent.com/antimodular/examples/master/sphere_sphere_intersection/sphereSphere.png)

@@ -1,0 +1,4 @@
+ofxGui
+ofxUVC
+local_addons/ofxAVFoundationGrabber
+local_addons/ofxDropdown

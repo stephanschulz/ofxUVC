@@ -55,7 +55,9 @@ namespace ofxUVCProber{
     }
     
     inline std::vector<std::tuple<std::string,int,int,std::string, unsigned int>> getList(){
-
+        cout<<"---------"<<endl;
+        cout<<"getList()"<<endl;
+        
         std::string ret = detail::exec((char*)"system_profiler SPCameraDataType");
         std::cout<<ret<<std::endl;
 
@@ -134,6 +136,38 @@ namespace ofxUVCProber{
         }
         return make_tuple(0,0);
     }
+
+inline std::tuple<int,int, unsigned int> getVendorIDAndProductIDAndUniqueIDByUID(std::string s){
+    cout<<"++++++"<<endl;
+    cout<<"getVendorIDAndProductIDAndUniqueIDByUID() for UID "<<s<<endl;
+    
+    auto cams = getList();
+    cout<<"cams.size() "<<cams.size()<<endl;
+    
+    for (int i = 0; i < cams.size(); i++){
+        cout<<i<<" std::get<3>(cams[i] "<<std::get<3>(cams[i])<<" vs "<<s<<endl;
+        if (std::get<3>(cams[i]) == s){
+//            return make_tuple(std::get<1>(cams[i]),std::get<2>(cams[i]));
+            cout<<"looking for UID "<<s<<endl;
+            cout<<"std::get<1>(cams[i]) "<<std::get<1>(cams[i])<<endl;
+            cout<<"std::get<2>(cams[i]) "<<std::get<2>(cams[i])<<endl;
+            cout<<"std::get<3>(cams[i]) "<<std::get<3>(cams[i])<<endl;
+            cout<<"std::get<4>(cams[i]) "<<std::get<4>(cams[i])<<endl;
+            return make_tuple( std::get<1>(cams[i]), std::get<2>(cams[i]), std::get<4>(cams[i]) );
+        }
+    }
+    return make_tuple(0,0,0);
+}
+
+inline std::tuple<int,int> getVendorIDAndProductIDByUID(std::string s){
+    auto cams = getList();
+    for (int i = 0; i < cams.size(); i++){
+        if (std::get<3>(cams[i]) == s){
+            return make_tuple(std::get<1>(cams[i]),std::get<2>(cams[i]));
+        }
+    }
+    return make_tuple(0,0);
+}
     
   
 }

@@ -1,0 +1,28 @@
+{
+    "camera": {
+        "AE_Mode": "0",
+        "aePriority": "1",
+        "autoExposure": "1",
+        "autoFocus": "1",
+        "autoWhiteBalance": "1",
+        "backLight": "0",
+        "brightnessValue": "0.41",
+        "contrastValue": "0.52",
+        "exposureTimeAbsolute": "0.11",
+        "focusValue": "1",
+        "gainValue": "0.45",
+        "gammaValue": "0",
+        "getCamValues": "0",
+        "hueValue": "0.44",
+        "initDone": "false",
+        "led": "0",
+        "panAbsolute": "0",
+        "powerFreq": "0",
+        "saturationValue": "0.54",
+        "sharpValue": "0.54",
+        "tiltAbsolute": "0",
+        "whiteBalanceValue": "0.405",
+        "zoomAbsolute": "0"
+    },
+    "group": null
+}
